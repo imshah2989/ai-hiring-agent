@@ -1,10 +1,17 @@
 import os
 import json
 import time
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 from typing import List, Optional
 from apify_client import ApifyClient
 from .models import CandidateProfile
+
+# ─── SEARCH CONFIGURATION ───────────────────────────────────────────────
+# Change this number to control how many profiles are scraped per search.
+# For TESTING → 50
+# For PRODUCTION → 2500 (LinkedIn's hard cap per query)
+MAX_SEARCH_PROFILES = 50
+# ────────────────────────────────────────────────────────────────────────
 
 class SourcingEngine:
     """
@@ -18,62 +25,89 @@ class SourcingEngine:
         self.api_token = os.getenv("APIFY_API_TOKEN")
         self.client = ApifyClient(self.api_token) if self.api_token else None
         
+        # Outreach Credentials
+        self.li_at = os.getenv("LINKEDIN_LI_AT")
+        self.user_agent = os.getenv("LINKEDIN_USER_AGENT")
+        
         # Actor IDs (Using verified reliable actors)
-        self.search_actor = "robotic_tyke/linkedin-people-search-scraper"
-        self.profile_actor = "lexis/linkedin-profile-scraper"
+        # Search & Profile: https://apify.com/harvestapi/linkedin-profile-search
+        self.search_actor = "harvestapi/linkedin-profile-search"
+        # Profile Scrape: Using the same HarvestAPI actor or specialized profile scraper
+        self.profile_actor = "harvestapi/linkedin-profile-scraper"
+        # Messaging: https://apify.com/addeus/send-dm-for-linkedin
         self.message_actor = "addeus/send-dm-for-linkedin"
-        self.inbox_actor = "addeus/linkedin-unread-messages-scraper"
+        # Inbox: https://apify.com/randominique/linkedin-get-messages-from-unread-threads
+        self.inbox_actor = "randominique/linkedin-get-messages-from-unread-threads"
 
-    def search_candidates(self, role: str, location: str, limit: int = 10) -> List[CandidateProfile]:
+    def search_candidates(self, role: str, location: str, limit: int = 2500) -> List[CandidateProfile]:
         """
         Runs the Apify Search Actor to find candidates.
+        Fetches up to 2500 profiles (LinkedIn's maximum per query),
+        then filters for Open-to-Work candidates from the full pool.
         """
         if not self.client:
             print("⚠️ Skipping search: APIFY_API_TOKEN not set.")
             return []
 
-        print(f"🚀 Launching Apify Search for '{role}' in '{location}'...")
+        print(f"SEARCH: Launching Apify Search for '{role}' in '{location}'...")
+        print(f"SEARCH: Fetching max 2500 profiles, then filtering for Open-to-Work...")
         
         # Prepare search keywords
-        # We explicitly add "Open to Work" to the search query if possible, 
-        # but the actor also has its own filters.
-        search_query = f"{role} {location}"
+        query = f"{role} {location}"
         
         run_input = {
-            "queries": [search_query],
-            "limit": limit,
-            "proxy": { "useApifyProxy": True },
-            # Some actors allow a direct "open to work" filter, 
-            # if not, we filter the results in the parser.
+            "searchQuery": query,
+            "maxItems": MAX_SEARCH_PROFILES,  # Change MAX_SEARCH_PROFILES at the top of this file
+            "proxyConfiguration": { "useApifyProxy": True }
         }
 
         try:
             run = self.client.actor(self.search_actor).call(run_input=run_input)
-            print(f"✅ Search complete. Fetching results...")
+            print(f"DONE: Search complete. Fetching results...")
             
             candidates = []
             for item in self.client.dataset(run["defaultDatasetId"]).iterate_items():
-                name = item.get("name") or item.get("fullName") or "Unknown"
-                headline = item.get("headline") or ""
-                profile_url = item.get("url") or item.get("profileUrl")
+                # ROBUST NAME MAPPING: HarvestAPI uses firstName/lastName
+                f_name = item.get("firstName") or ""
+                l_name = item.get("lastName") or ""
+                name = item.get("fullName") or item.get("name") or f"{f_name} {l_name}".strip()
+                if not name or name.lower() == "linkedin member":
+                    name = item.get("publicIdentifier") or "Unknown Candidate"
                 
-                # Basic OTW detection from search results
-                is_otw = "open to work" in headline.lower() or item.get("isOpenToWork", False)
+                # Check OTW status (Both boolean and headline keyword)
+                headline = item.get("headline") or ""
+                is_otw = item.get("openToWork") is True or "open to work" in headline.lower()
+                
+                # STRICT FILTER: Only process those interested in opportunities
+                if not is_otw:
+                    continue
+
+                profile_url = item.get("linkedinUrl") or item.get("url") or item.get("profileUrl")
+                loc_obj = item.get("location")
+                location_text = ""
+                if isinstance(loc_obj, dict):
+                    location_text = loc_obj.get("linkedinText") or loc_obj.get("name") or ""
+                
+                # Capture full data
+                about = item.get("about") or item.get("summary")
+                experience = item.get("experience") or []
                 
                 candidates.append(CandidateProfile(
                     id=profile_url or name,
                     name=name,
                     headline=headline,
                     profile_url=profile_url,
-                    experience_text="", # Will be filled by deep scrape
+                    location=location_text,
+                    experience_text=json.dumps(experience) if experience else "",
+                    about=about,
                     is_open_to_work=is_otw
                 ))
             
-            print(f"✅ Found {len(candidates)} candidates.")
+            print(f"DONE: Filtered for {len(candidates)} Open-to-Work candidates.")
             return candidates
 
         except Exception as e:
-            print(f"❌ Apify Search Error: {e}")
+            print(f"ERROR: Apify Search Error: {e}")
             return []
 
     def deep_scrape_candidates(self, candidates: List[CandidateProfile], only_open_to_work: bool = False) -> List[CandidateProfile]:
@@ -87,11 +121,12 @@ class SourcingEngine:
         if not valid_urls:
             return candidates
 
-        print(f"🚀 Deep Scraping {len(valid_urls)} profiles via Apify...")
+        print(f"SCRAPE: Deep Scraping {len(valid_urls)} profiles via Apify...")
         
         run_input = {
-            "urls": valid_urls,
-            "proxy": { "useApifyProxy": True }
+            "profileUrls": valid_urls,
+            "maxItems": len(valid_urls),
+            "proxyConfiguration": { "useApifyProxy": True }
         }
 
         try:
@@ -99,7 +134,7 @@ class SourcingEngine:
             
             enriched_data = {}
             for item in self.client.dataset(run["defaultDatasetId"]).iterate_items():
-                url = item.get("url") or item.get("profileUrl")
+                url = item.get("url") or item.get("profileUrl") or item.get("linkedinUrl")
                 if url:
                     enriched_data[url] = item
 
@@ -111,7 +146,8 @@ class SourcingEngine:
                     # Update candidate with full data
                     c.headline = data.get("headline") or c.headline
                     c.experience_text = json.dumps(data.get("experience", []))
-                    c.is_open_to_work = data.get("isOpenToWork", False) or "open to work" in (data.get("summary") or "").lower()
+                    # Native HarvestAPI OTW flag
+                    c.is_open_to_work = data.get("openToWork", False) or "open to work" in (data.get("headline") or "").lower()
                     
                     if only_open_to_work and not c.is_open_to_work:
                         continue # Skip if we only want OTW and this one isn't
@@ -131,18 +167,24 @@ class SourcingEngine:
         if not self.client:
             print("⚠️ Outreach failed: APIFY_API_TOKEN not set.")
             return False
+            
+        if not self.li_at:
+            print("⚠️ Outreach failed: LINKEDIN_LI_AT cookie not set in .env.")
+            return False
 
-        print(f"✉️ Sending Apify Outreach to {profile_url}...")
+        print(f"OUTREACH: Sending Apify Outreach to {profile_url}...")
         
+        # Addeus actor schema: profileUrl, messageText, liAtCookie, userAgent
         run_input = {
-            "recipientUrl": profile_url,
-            "message": message_text,
-            "proxy": { "useApifyProxy": True }
+            "profileUrl": profile_url,
+            "messageText": message_text,
+            "liAtCookie": self.li_at,
+            "userAgent": self.user_agent or "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
         }
 
         try:
             self.client.actor(self.message_actor).call(run_input=run_input)
-            print(f"✅ Message sent successfully.")
+            print(f"DONE: Message sent successfully.")
             return True
         except Exception as e:
             print(f"❌ Apify Message Error: {e}")
@@ -155,7 +197,7 @@ class SourcingEngine:
         if not self.client:
             return []
 
-        print(f"🔔 Checking for new replies via Apify...")
+        print(f"INBOX: Checking for new replies via Apify...")
         
         try:
             run = self.client.actor(self.inbox_actor).call()

@@ -4,7 +4,7 @@ export default function DeepScrapeView({ candidates }) {
             <div className="text-center py-16 text-slate-600 glass-card border-dashed">
                 <div className="text-4xl mb-3 opacity-50">🕵️</div>
                 <p className="text-sm">Waiting for deep scrape data...</p>
-                <p className="text-xs mt-1 text-slate-700">PhantomBuster will scrape each profile individually.</p>
+                <p className="text-xs mt-1 text-slate-700">The automation is processing each profile for deep analysis.</p>
             </div>
         )
     }

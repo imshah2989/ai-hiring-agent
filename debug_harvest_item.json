@@ -1,0 +1,1282 @@
+{
+  "id": "ACoAAAbTFt4BA5HtzF8uBFMKOdo1MT5yEnw-YNg",
+  "publicIdentifier": "naumansarwar",
+  "linkedinUrl": "https://www.linkedin.com/in/naumansarwar",
+  "firstName": "Nauman",
+  "lastName": "Sarwar",
+  "headline": "Cyber Security Engineer",
+  "openToWork": false,
+  "hiring": false,
+  "premium": false,
+  "influencer": false,
+  "memorialized": false,
+  "location": {
+    "linkedinText": "London, England, United Kingdom",
+    "countryCode": "GB",
+    "parsed": {
+      "text": "London, United Kingdom",
+      "countryCode": "GB",
+      "regionCode": null,
+      "country": "UK",
+      "countryFull": "United Kingdom",
+      "state": "England",
+      "city": "London"
+    }
+  },
+  "objectUrn": "114497246",
+  "registeredAt": "2011-04-18T09:32:26.000Z",
+  "topSkills": null,
+  "connectionsCount": 507,
+  "followerCount": 509,
+  "verified": true,
+  "about": "I am a technical minded and highly analytical IT Support Specialist who has 18 years of demonstrated and operational experience with a blend of hands-on technical knowledge & project management skills with proven ability to provide high quality solutions that increase productivity, decrease cost, and maximize manpower.\n\nAs a consummate Professional I have proven acumen to excel within a challenging environment, and initiating, administering and executing across a portfolio of projects harmonizing technical needs with business realities including Budgeting/Estimation, Software Deployments, Technical Support, Networking Management, Planning/Monitoring, and Reporting & Review.",
+  "currentPosition": [
+    {
+      "companyId": "18279423",
+      "companyLinkedinUrl": "https://www.linkedin.com/company/18279423/",
+      "companyName": "Standard Industries",
+      "dateRange": {
+        "start": {
+          "month": 9,
+          "year": 2024,
+          "day": null
+        },
+        "end": null
+      }
+    }
+  ],
+  "profileTopEducation": [
+    {
+      "schoolId": "15891",
+      "companyId": "15098182",
+      "schoolLinkedinUrl": "https://www.linkedin.com/company/15098182/",
+      "schoolName": "University of Engineering and Technology, Lahore"
+    }
+  ],
+  "profileActions": [],
+  "profilePicture": {
+    "url": "https://media.licdn.com/dms/image/v2/D4E03AQFXBw7UA-FWbw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1678176642687?e=1773273600&v=beta&t=0668NESxpwYkdNfutL4o_q9tG9wK5nMa1p13baugr2Y",
+    "sizes": [
+      {
+        "url": "https://media.licdn.com/dms/image/v2/D4E03AQFXBw7UA-FWbw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1678176642687?e=1773273600&v=beta&t=0668NESxpwYkdNfutL4o_q9tG9wK5nMa1p13baugr2Y",
+        "width": 800,
+        "height": 800,
+        "expiresAt": 1773273600000
+      },
+      {
+        "url": "https://media.licdn.com/dms/image/v2/D4E03AQFXBw7UA-FWbw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1678176642687?e=1773273600&v=beta&t=z2khPeiMSwWVzD1dl_gvxWVrBGtuQAtVXz0L7gLnqoA",
+        "width": 400,
+        "height": 400,
+        "expiresAt": 1773273600000
+      },
+      {
+        "url": "https://media.licdn.com/dms/image/v2/D4E03AQFXBw7UA-FWbw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1678176642687?e=1773273600&v=beta&t=ABctkC08QsQe_uUt7RtT73DrfiPpNPTLnDIOz6KMizg",
+        "width": 200,
+        "height": 200,
+        "expiresAt": 1773273600000
+      },
+      {
+        "url": "https://media.licdn.com/dms/image/v2/D4E03AQFXBw7UA-FWbw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1678176642687?e=1773273600&v=beta&t=n9FaxlosZ-HiN61GCDUVBHDJJuIbP9kr-ZW46LUSj44",
+        "width": 100,
+        "height": 100,
+        "expiresAt": 1773273600000
+      }
+    ]
+  },
+  "coverPicture": null,
+  "photo": "https://media.licdn.com/dms/image/v2/D4E03AQFXBw7UA-FWbw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1678176642687?e=1773273600&v=beta&t=0668NESxpwYkdNfutL4o_q9tG9wK5nMa1p13baugr2Y",
+  "profileLocales": [
+    {
+      "country": "US",
+      "language": "en"
+    }
+  ],
+  "primaryLocale": {
+    "country": "US",
+    "language": "en"
+  },
+  "services": null,
+  "experience": [
+    {
+      "position": "Cyber Security Engineer",
+      "location": "Reading, England, United Kingdom",
+      "employmentType": "Full-time",
+      "workplaceType": "Hybrid",
+      "companyName": "Standard Industries",
+      "companyLinkedinUrl": "https://www.linkedin.com/company/standardindustries/",
+      "companyId": "18279423",
+      "companyUniversalName": "standardindustries",
+      "duration": "1 yr 6 mos",
+      "description": "Key Responsibilities:\n\u25cf Participate in Cyber and Infrastructure Steerco meetings to evaluate the progress of ongoing projects and help take strategic decisions and improve cyber security posture of the organisation.\n\u25cf Be part of the Architecture Review Boards to review cyber security solutions architecture, frameworks, standards and advisories. Requirements gathering for cyber solutions and standards.\n\u25cf Implementation of Prisma Access including the roll out of Remote Networks and Global Protect. Supervise the project from start to end including technical requirements gathering, HLD and LLD collaboration and review.\n\u25cf Implementation of CyberArk for Privilege Access Management including Password Policy Enforcement, Privilege Session Management and Session Recording. Integration of Active Directory with CyberArk.\n\u25cf Management of SentinelOne as MDR solution, Policy Enforcement and Reviews, Endpoint Security Management.\n\u25cf Implementation and Operationalisation of Claroty in OT environment for Asset Management, Vulnerability Management and Threat Detection.\n\u25cf Identity and Access Management audits to ensure least access requirements are met.\n\u25cf Firewalls policy analysis to enhance security posture. Integration of Firewalls with compliance measuring tools.\n\u25cf Collaborate with various stakeholders including, SecOps, GRC, IT Services, WPS, Projects and OT teams to ensure compliance to standards and frameworks and enhance cyber security posture.\n\nKey Accomplishments:\n\u25cf Upgraded the Palo Alto Firewalls OS across the whole estate in an efficient way to avoid upcoming EOL.\n\u25cf Helped remediate critical vulnerabilities across OT Networks.\n\u25cf Integrated CyberArk with Active Directory and on boarded the domain admin accounts.\n\u25cf Implementation of Global Protect ensuring all test cases are evaluated including interoperability with other VPN solutions.\n\u25cf Implementation of an effective IAM strategy to ensure access is managed efficiently across the company.",
+      "skills": [
+        "Palo Alto Networks",
+        "Claroty",
+        "Security Architecture Design",
+        "Network Security Implementation",
+        "Network Security",
+        "Cyber Ark",
+        "Active Directory",
+        "SD-WAN"
+      ],
+      "startDate": {
+        "month": "Sep",
+        "year": 2024,
+        "text": "Sep 2024"
+      },
+      "endDate": {
+        "text": "Present"
+      },
+      "companyLogo": {
+        "url": "https://media.licdn.com/dms/image/v2/C560BAQHarjssiuAG_Q/company-logo_400_400/company-logo_400_400/0/1631332771934?e=1773273600&v=beta&t=nbT8RtM9NEFx0Zs7vTGuHJiX2XcQaLbEwv_P-Pgd4xI",
+        "sizes": [
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C560BAQHarjssiuAG_Q/company-logo_400_400/company-logo_400_400/0/1631332771934?e=1773273600&v=beta&t=nbT8RtM9NEFx0Zs7vTGuHJiX2XcQaLbEwv_P-Pgd4xI",
+            "width": 400,
+            "height": 400,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C560BAQHarjssiuAG_Q/company-logo_200_200/company-logo_200_200/0/1631332771934?e=1773273600&v=beta&t=6dnmsIeKQuKljKw9IDrGsXPXO81-B0Y1aIpt03ezaF4",
+            "width": 200,
+            "height": 200,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C560BAQHarjssiuAG_Q/company-logo_100_100/company-logo_100_100/0/1631332771934?e=1773273600&v=beta&t=Wpl81CLX4BRpXY--P_HwmaZOEsiFth6C5oT-7GMAoks",
+            "width": 100,
+            "height": 100,
+            "expiresAt": 1773273600000
+          }
+        ]
+      }
+    },
+    {
+      "position": "Cyber Security Engineer",
+      "location": "London, England, United Kingdom",
+      "employmentType": "Full-time",
+      "workplaceType": "Hybrid",
+      "companyName": "London Underground - Transport of London",
+      "companyLinkedinUrl": "https://www.linkedin.com/company/64222558/",
+      "companyId": "64222558",
+      "duration": "2 yrs 6 mos",
+      "description": "Ensure all signalling networks of London Underground are compliant to NIS (Network and Information Systems) Regulations 2018. Provide technical support to the signalling teams for network operations and cyber security.\n\u2022\tLiaise with SMEs from all networks to conduct Cyber Assessment Framework workshops to understand the compliance of each network. Devise improvement plans and carry out their implementation.\n\u2022\tLiaise with DfT (Department for Transport) to prove cyber security compliance and perform audits of the signalling networks.\n\u2022\tReview cyber security standards, policies and procedures to make them in line with the NIS regulations and ensure their implementation.\n\u2022\tProvide cyber security consultancy to all new projects to ensure best practices are followed.\n\u2022\tManage the OT Detect project to introduce new technology for network intrusion detection and data analytics.\n\u2022\tAnalyse the vulnerability assessment reports, conduct risk assessments to overcome risks associated with the vulnerabilities in the network, implement measures to overcome vulnerabilities.\n\u2022\tManage firewalls, user access, incident response, backup and disaster recovery, software security.\n\u2022\tTraining and competence enhancement through third party training programme for the organisation.\n\u2022\tProvide technical support for Cyber Improvement Project which requires constant review of the network obsolescence and incremental upgrades.",
+      "skills": [
+        "Firewalls",
+        "Stakeholder Management",
+        "Cyber Risk Management",
+        "Network Security",
+        "Threat & Vulnerability Management",
+        "Cyber Defense"
+      ],
+      "experienceGroupId": "68136ecb37da2bde849f33085097f27f8db96c6e",
+      "startDate": {
+        "month": "Apr",
+        "year": 2022,
+        "text": "Apr 2022"
+      },
+      "endDate": {
+        "month": "Sep",
+        "year": 2024,
+        "text": "Sep 2024"
+      },
+      "companyLogo": null
+    },
+    {
+      "position": "Data Networks Manager",
+      "location": "London, United Kingdom",
+      "employmentType": null,
+      "workplaceType": null,
+      "companyName": "London Underground - Transport of London",
+      "companyLinkedinUrl": "https://www.linkedin.com/company/64222558/",
+      "companyId": "64222558",
+      "duration": "3 yrs 8 mos",
+      "description": "Manage CBTC network for Four Lines Modernisation Project. Ensure availability of network resources at all times for smooth working of train service. Liaise with teams across different organisations for the implementation of IP based modern signalling and handover of assets from projects to maintenance. Develop skills and competence within the team to provide high standard service by providing training and technical documentation to staff.\n\u2022\tDraft and implement TfL\u2019s Cyber Security standards, policies and work instructions. Conduct Cyber Assessment Framework workshops to audit the network, procedures and practices to ensure compliance to NIS Directives. Investigate cyber security incidents, compile root cause analysis reports and take actions to eradicate threats. Implement measures to safeguard network from any security threats.\n\u2022\tIdentify and resolve Wi-Fi based Software Defined Radio Network coverage issues. Ensure the suitability of daily heath checks and raise work orders to fix software defined radios.\n\u2022\tAnalyse firewall logs for Checkpoint 4600 and 5600 platforms to capture any suspicious activities. Optimise the security policy to enhance firewall performance. Implement changes in rule base to allow or deny traffic based on audits performed or change in design to accommodate new features.\n\u2022\tImplement and audit device security using Symantec Endpoint Protection, Trend Micro, Sophos and Microsoft Windows Defender antivirus software. Ensure antivirus policy is fit for purpose, definitions are up to date. Investigate and resolve any threat detection incident.\n\u2022\tInstall the NIDS (Network Intrusion Detection System) application on data recorders and analyse the logs through LogLady software to protect the network from external penetration.\n\u2022\tGenerate and distribute VPN security certificates to remote teams for encrypted communication between the trusted nodes of the network using untrusted infrastructure.",
+      "skills": [
+        "Firewalls",
+        "Stakeholder Management",
+        "Cyber Risk Management",
+        "Network Security",
+        "Threat & Vulnerability Management",
+        "Computer Networking",
+        "Network Switches",
+        "Infrastructure",
+        "Cyber Defense"
+      ],
+      "experienceGroupId": "68136ecb37da2bde849f33085097f27f8db96c6e",
+      "startDate": {
+        "month": "Aug",
+        "year": 2018,
+        "text": "Aug 2018"
+      },
+      "endDate": {
+        "month": "Mar",
+        "year": 2022,
+        "text": "Mar 2022"
+      },
+      "companyLogo": null
+    },
+    {
+      "position": "System Support Engineer",
+      "location": "London, United Kingdom",
+      "employmentType": null,
+      "workplaceType": null,
+      "companyName": "London Underground Limited",
+      "companyLinkedinUrl": "https://www.linkedin.com/search/results/all/?keywords=London+Underground+Limited",
+      "duration": "8 mos",
+      "description": "\u25cf Identify unexpected behavior, intermittent failure or sequence of events following a reported incident.  Use results of such analysis to suggest initiatives to improve reliability of the TBTC system and where possible assist in their implementation.\n\n\u25cf Work with a small team of technicians on a day-to-day basis to ensure workload of SLMD operation is covered.\n\n\u25cf Develop and use log analysis tools to analyze logs in various formats from all components of the TBTC system.\n\n\u25cf Provide reports on outcomes of medium and long term log analysis highlighting conclusions especially with regard to system reliability.\n",
+      "skills": null,
+      "startDate": {
+        "month": "Jan",
+        "year": 2018,
+        "text": "Jan 2018"
+      },
+      "endDate": {
+        "month": "Aug",
+        "year": 2018,
+        "text": "Aug 2018"
+      }
+    },
+    {
+      "position": "Network Engineer",
+      "location": "London, United Kingdom",
+      "employmentType": null,
+      "workplaceType": null,
+      "companyName": "Tube Lines",
+      "companyLinkedinUrl": "https://www.linkedin.com/company/12666/",
+      "companyId": "12666",
+      "duration": "4 yrs 8 mos",
+      "description": "\u25cf Configure, implement and support RIP, EIGRP, OSPF, HDLC, PPP, Frame-Relay, VLSM, VRRP, HSRP, GLBP, Layer 2 and 3 switches including VLANs, Trunking, Port Security and STP and troubleshooting of the Cisco IOS software.\n\n\u25cf Configured and troubleshoot Cisco Routers including 3600, 2600, 2500, 1700, 1800, 7600 series. DHCP server for dynamic host management, Network Monitoring using customised SNMP tool for London Underground.\n\n\u25cf Devise corrective and preventive maintenance on HP and Dell Machines running Windows Server 2008R2 and 2012, Windows XP, Windows 7 and Windows 10. Configure and maintain a wide range of APC UPS including Network Management Cards.\n\n\u25cf Provide Technical correspondence with respect to maintain and administer Cisco 3750 series, Alcatel 6100 and 6200 series, 3COM 4210 series and HP 5120 series switches. Configure Nokia Firewall IP380 and Checkpoint 4600.\n\n\u25cf Utilise test tools to assess faults in the network especially Fluke Network Testers for LAN and Optical Fibre testing. Establish a Database of the technical documentation related to all the HW/SW elements present in the network.",
+      "skills": [
+        "Firewalls",
+        "Network Security",
+        "Threat & Vulnerability Management",
+        "Computer Networking",
+        "Network Switches",
+        "Infrastructure"
+      ],
+      "startDate": {
+        "month": "Jun",
+        "year": 2013,
+        "text": "Jun 2013"
+      },
+      "endDate": {
+        "month": "Jan",
+        "year": 2018,
+        "text": "Jan 2018"
+      },
+      "companyLogo": {
+        "url": "https://media.licdn.com/dms/image/v2/C510BAQHalKb-K1bglA/company-logo_400_400/company-logo_400_400/0/1631339466387?e=1773273600&v=beta&t=sQnFl5-jlNxxpnymvi7SsAjOxCr3COrFx803qt0sH6A",
+        "sizes": [
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C510BAQHalKb-K1bglA/company-logo_400_400/company-logo_400_400/0/1631339466387?e=1773273600&v=beta&t=sQnFl5-jlNxxpnymvi7SsAjOxCr3COrFx803qt0sH6A",
+            "width": 400,
+            "height": 400,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C510BAQHalKb-K1bglA/company-logo_200_200/company-logo_200_200/0/1631339466387?e=1773273600&v=beta&t=Wt2mhgi6aeDJwMl9ZW2bUF1jS10hFxeAaqgX32mwCeE",
+            "width": 200,
+            "height": 200,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C510BAQHalKb-K1bglA/company-logo_100_100/company-logo_100_100/0/1631339466387?e=1773273600&v=beta&t=2-TTnvcWDjEnN98qSVBSvBLC-k6lY544vYQ8CBNCFms",
+            "width": 100,
+            "height": 100,
+            "expiresAt": 1773273600000
+          }
+        ]
+      }
+    },
+    {
+      "position": "SENIOR TECHNICAL SUPPORT ENGINEER",
+      "location": "Lahore, Pakistan",
+      "employmentType": null,
+      "workplaceType": null,
+      "companyName": "Alcatel-Lucent",
+      "companyLinkedinUrl": "https://www.linkedin.com/company/1070/",
+      "companyId": "1070",
+      "duration": "4 yrs 10 mos",
+      "description": "\u25cf Identified and assessed malfunctioning raised on all applications & HW platforms running. Collaborated with the back-end office for regression testing of telecom equipment and sanity tests on Alcatel Lucent GSM BSS equipment. \n\n\u25cf Orchestrated establishment of independent troubleshooting & repairing product problems (solving Trouble Tickets). Ensure that all trouble tickets are properly logged and tracked in the trouble ticketing system (CARES).\n\n\u25cf Organised and optimised all Solaris/Linux based HW/SW platforms (BSC, TC, BTS, MFS, OMCRs, NPOs, and HMIs) hosted in Mobilink network. Handled backups for all systems/servers and any issue arising in backups.\n\n\u25cf Key contributor to train technical personnel and customer after attending advanced training from external sources or Alcatel-Lucent product in-house training. Upgraded and migrated B9-B10/B10- B11 network level.\n\nTechnical Support Organisation Tasks:\n\n\u25cf Commissioning of Solaris/Linux based Alcatel-Lucent OMC-R server (SUN M4000, V490 & V880)\n\n\u25cf Commissioning and troubleshooting of all Solaris/Linux based Alcatel BSS/RAN entities (BSC, BTS, TC (TRAU), and MFS (GPRS)) and GPRS issues.\n\n\u25cf Resolving QoS issues on BSC and Cell level like (Call drops, Preparation failures, RTC drops, Congestion, HO failures, Zero calls, low CSSR/HSR, high CDR etc.) and optimizing KPI\u2019s.\n\n\u25cf BSC database analysis, fixing and restoration.\n\n\u25cf Migration of BSS from A-interface over TDM to A over IP. Migration of BSS from Abis interface over TDM to Abis over STM-1.\n\n\u25cf Migration of BSS from GB interface over Frame-Relay to GB over IP.\n\n\u25cf Inter OMC BSS migration & Inter-MSC BSS migration.\n\n\u25cf BTS offline and online Commissioning /Troubleshooting.\n\n\u25cf GPRS configuration and troubleshooting.",
+      "skills": null,
+      "experienceGroupId": "d4875c473a2a8f720d21344f1b7ee1df0879affc",
+      "startDate": {
+        "month": "Jan",
+        "year": 2008,
+        "text": "Jan 2008"
+      },
+      "endDate": {
+        "month": "Oct",
+        "year": 2012,
+        "text": "Oct 2012"
+      },
+      "companyLogo": {
+        "url": "https://media.licdn.com/dms/image/v2/D4E0BAQE_ff-lEcAC5w/company-logo_400_400/B4EZqby_U_HgAY-/0/1763550426950/nokia_logo?e=1773273600&v=beta&t=WPY0XwoBO3Gz4JN5LR0yOrliyQENINqmtBmlyo6zCE4",
+        "sizes": [
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4E0BAQE_ff-lEcAC5w/company-logo_400_400/B4EZqby_U_HgAY-/0/1763550426950/nokia_logo?e=1773273600&v=beta&t=WPY0XwoBO3Gz4JN5LR0yOrliyQENINqmtBmlyo6zCE4",
+            "width": 400,
+            "height": 400,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4E0BAQE_ff-lEcAC5w/company-logo_200_200/B4EZqby_U_HgAI-/0/1763550426950/nokia_logo?e=1773273600&v=beta&t=1OxDJQYuszyiHWMxcdhQxyXS6MpQCcrhrNdk-MA2l-o",
+            "width": 200,
+            "height": 200,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4E0BAQE_ff-lEcAC5w/company-logo_100_100/B4EZqby_U_HgAQ-/0/1763550426950/nokia_logo?e=1773273600&v=beta&t=4x0oSl0-CWsItvRLC5CeeC6BQoCu19pIAAuyb84Mrqg",
+            "width": 100,
+            "height": 100,
+            "expiresAt": 1773273600000
+          }
+        ]
+      }
+    },
+    {
+      "position": "TESTING AND VERIFICATION OF ALCATEL-LUCENT BSS/RAN",
+      "location": null,
+      "employmentType": null,
+      "workplaceType": null,
+      "companyName": "Alcatel-Lucent",
+      "companyLinkedinUrl": "https://www.linkedin.com/company/1070/",
+      "companyId": "1070",
+      "duration": "4 yrs 10 mos",
+      "description": "\u25cf Designed and implemented Alcatel-lucent test bench to be used by the local team for testing purpose; included complete GSM BSS architecture. Evaluated faulty RAN HW before sending them to repair centre.\n\n\u25cf Tested and analysed the performance of new SW releases (B10, B11), new and repaired equipment and new features including Asig over IP, GB over IP, Evolution TRX, Abis over STM-1 etc.",
+      "skills": null,
+      "experienceGroupId": "d4875c473a2a8f720d21344f1b7ee1df0879affc",
+      "startDate": {
+        "month": "Jan",
+        "year": 2008,
+        "text": "Jan 2008"
+      },
+      "endDate": {
+        "month": "Oct",
+        "year": 2012,
+        "text": "Oct 2012"
+      },
+      "companyLogo": {
+        "url": "https://media.licdn.com/dms/image/v2/D4E0BAQE_ff-lEcAC5w/company-logo_400_400/B4EZqby_U_HgAY-/0/1763550426950/nokia_logo?e=1773273600&v=beta&t=WPY0XwoBO3Gz4JN5LR0yOrliyQENINqmtBmlyo6zCE4",
+        "sizes": [
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4E0BAQE_ff-lEcAC5w/company-logo_400_400/B4EZqby_U_HgAY-/0/1763550426950/nokia_logo?e=1773273600&v=beta&t=WPY0XwoBO3Gz4JN5LR0yOrliyQENINqmtBmlyo6zCE4",
+            "width": 400,
+            "height": 400,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4E0BAQE_ff-lEcAC5w/company-logo_200_200/B4EZqby_U_HgAI-/0/1763550426950/nokia_logo?e=1773273600&v=beta&t=1OxDJQYuszyiHWMxcdhQxyXS6MpQCcrhrNdk-MA2l-o",
+            "width": 200,
+            "height": 200,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4E0BAQE_ff-lEcAC5w/company-logo_100_100/B4EZqby_U_HgAQ-/0/1763550426950/nokia_logo?e=1773273600&v=beta&t=4x0oSl0-CWsItvRLC5CeeC6BQoCu19pIAAuyb84Mrqg",
+            "width": 100,
+            "height": 100,
+            "expiresAt": 1773273600000
+          }
+        ]
+      }
+    },
+    {
+      "position": "REGIONAL TECHNICAL SUPPORT CENTRE ATTACHMENT",
+      "location": "Egypt",
+      "employmentType": null,
+      "workplaceType": null,
+      "companyName": "Alcatel-Lucent",
+      "companyLinkedinUrl": "https://www.linkedin.com/company/1070/",
+      "companyId": "1070",
+      "duration": "2 mos",
+      "description": "Handled the level-2 tickets escalated by local teams around the world. Requested and analysed the traces/logs and information sent to provide the solution of complex issues.\n\nLearning the new features introduced in the upgraded SW release B11.",
+      "skills": null,
+      "experienceGroupId": "d4875c473a2a8f720d21344f1b7ee1df0879affc",
+      "startDate": {
+        "month": "Feb",
+        "year": 2012,
+        "text": "Feb 2012"
+      },
+      "endDate": {
+        "month": "Mar",
+        "year": 2012,
+        "text": "Mar 2012"
+      },
+      "companyLogo": {
+        "url": "https://media.licdn.com/dms/image/v2/D4E0BAQE_ff-lEcAC5w/company-logo_400_400/B4EZqby_U_HgAY-/0/1763550426950/nokia_logo?e=1773273600&v=beta&t=WPY0XwoBO3Gz4JN5LR0yOrliyQENINqmtBmlyo6zCE4",
+        "sizes": [
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4E0BAQE_ff-lEcAC5w/company-logo_400_400/B4EZqby_U_HgAY-/0/1763550426950/nokia_logo?e=1773273600&v=beta&t=WPY0XwoBO3Gz4JN5LR0yOrliyQENINqmtBmlyo6zCE4",
+            "width": 400,
+            "height": 400,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4E0BAQE_ff-lEcAC5w/company-logo_200_200/B4EZqby_U_HgAI-/0/1763550426950/nokia_logo?e=1773273600&v=beta&t=1OxDJQYuszyiHWMxcdhQxyXS6MpQCcrhrNdk-MA2l-o",
+            "width": 200,
+            "height": 200,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4E0BAQE_ff-lEcAC5w/company-logo_100_100/B4EZqby_U_HgAQ-/0/1763550426950/nokia_logo?e=1773273600&v=beta&t=4x0oSl0-CWsItvRLC5CeeC6BQoCu19pIAAuyb84Mrqg",
+            "width": 100,
+            "height": 100,
+            "expiresAt": 1773273600000
+          }
+        ]
+      }
+    },
+    {
+      "position": "CONSULTANT MOBINIL EGYPT \u2013 MANAGED SERVICES PROJECT",
+      "location": "Egypt",
+      "employmentType": null,
+      "workplaceType": null,
+      "companyName": "Alcatel-Lucent",
+      "companyLinkedinUrl": "https://www.linkedin.com/company/1070/",
+      "companyId": "1070",
+      "duration": "2 mos",
+      "description": "Performed the network expansions, new sites integration, network audits and resolving the issues observed and daily configuration and administration tasks. \n\nSupported the QOS team to optimize the network.\n\nIdentified and evaluated the issues in the network which need customer intervention to get them fixed.",
+      "skills": null,
+      "experienceGroupId": "d4875c473a2a8f720d21344f1b7ee1df0879affc",
+      "startDate": {
+        "month": "Jan",
+        "year": 2012,
+        "text": "Jan 2012"
+      },
+      "endDate": {
+        "month": "Feb",
+        "year": 2012,
+        "text": "Feb 2012"
+      },
+      "companyLogo": {
+        "url": "https://media.licdn.com/dms/image/v2/D4E0BAQE_ff-lEcAC5w/company-logo_400_400/B4EZqby_U_HgAY-/0/1763550426950/nokia_logo?e=1773273600&v=beta&t=WPY0XwoBO3Gz4JN5LR0yOrliyQENINqmtBmlyo6zCE4",
+        "sizes": [
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4E0BAQE_ff-lEcAC5w/company-logo_400_400/B4EZqby_U_HgAY-/0/1763550426950/nokia_logo?e=1773273600&v=beta&t=WPY0XwoBO3Gz4JN5LR0yOrliyQENINqmtBmlyo6zCE4",
+            "width": 400,
+            "height": 400,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4E0BAQE_ff-lEcAC5w/company-logo_200_200/B4EZqby_U_HgAI-/0/1763550426950/nokia_logo?e=1773273600&v=beta&t=1OxDJQYuszyiHWMxcdhQxyXS6MpQCcrhrNdk-MA2l-o",
+            "width": 200,
+            "height": 200,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4E0BAQE_ff-lEcAC5w/company-logo_100_100/B4EZqby_U_HgAQ-/0/1763550426950/nokia_logo?e=1773273600&v=beta&t=4x0oSl0-CWsItvRLC5CeeC6BQoCu19pIAAuyb84Mrqg",
+            "width": 100,
+            "height": 100,
+            "expiresAt": 1773273600000
+          }
+        ]
+      }
+    }
+  ],
+  "education": [
+    {
+      "schoolName": "University of Engineering and Technology, Lahore",
+      "schoolLinkedinUrl": "https://www.linkedin.com/company/15098182/",
+      "schoolId": "15098182",
+      "degree": "BSC Engineering",
+      "fieldOfStudy": "Electrical",
+      "skills": [],
+      "insights": "Grade: 76.15%",
+      "startDate": {
+        "year": 2003,
+        "text": "2003"
+      },
+      "endDate": {
+        "year": 2007,
+        "text": "2007"
+      },
+      "period": "2003 - 2007",
+      "schoolLogo": {
+        "url": "https://media.licdn.com/dms/image/v2/C510BAQHB8ssxOzksRA/company-logo_400_400/company-logo_400_400/0/1630634178693/university_of_engineering_and_technology_lahore_logo?e=1773273600&v=beta&t=XUdFsL6OcDaXBonIAuthMj_BYE55RLvGQNSVT3RNvdM",
+        "sizes": [
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C510BAQHB8ssxOzksRA/company-logo_400_400/company-logo_400_400/0/1630634178693/university_of_engineering_and_technology_lahore_logo?e=1773273600&v=beta&t=XUdFsL6OcDaXBonIAuthMj_BYE55RLvGQNSVT3RNvdM",
+            "width": 400,
+            "height": 400,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C510BAQHB8ssxOzksRA/company-logo_200_200/company-logo_200_200/0/1630634178693/university_of_engineering_and_technology_lahore_logo?e=1773273600&v=beta&t=Mzwus5nhHLe2kOSrzzZrF2pssikysFe0LpV60KWYbdw",
+            "width": 200,
+            "height": 200,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C510BAQHB8ssxOzksRA/company-logo_100_100/company-logo_100_100/0/1630634178693/university_of_engineering_and_technology_lahore_logo?e=1773273600&v=beta&t=huGznjeDMMbTcbrQ8_c_OnWJQlS-hYu5EADww1u3WXo",
+            "width": 100,
+            "height": 100,
+            "expiresAt": 1773273600000
+          }
+        ]
+      }
+    },
+    {
+      "schoolName": "Government College University, Lahore",
+      "schoolLinkedinUrl": "https://www.linkedin.com/company/15095716/",
+      "schoolId": "15095716",
+      "degree": "FSC",
+      "fieldOfStudy": "Pre-Engineering",
+      "skills": [],
+      "insights": "Grade: 77%",
+      "startDate": {
+        "year": 2001,
+        "text": "2001"
+      },
+      "endDate": {
+        "year": 2003,
+        "text": "2003"
+      },
+      "period": "2001 - 2003",
+      "schoolLogo": null
+    },
+    {
+      "schoolName": "Government Central Model School, Lower Mall, Lahore",
+      "schoolLinkedinUrl": "https://www.linkedin.com/search/results/all/?keywords=Government+Central+Model+School%2C+Lower+Mall%2C+Lahore",
+      "schoolId": null,
+      "degree": "Secondary School Certificate",
+      "fieldOfStudy": "Science",
+      "skills": [],
+      "insights": "Grade: 84.35%",
+      "startDate": {
+        "year": 1999,
+        "text": "1999"
+      },
+      "endDate": {
+        "year": 2001,
+        "text": "2001"
+      },
+      "period": "1999 - 2001",
+      "schoolLogo": null
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Cisco Certified Network Professional",
+      "issuedAt": "Issued Jul 2017 \u00b7 Expired Jul 2022",
+      "issuedBy": "Cisco",
+      "issuedByLink": "https://www.linkedin.com/company/1063/",
+      "issuedByLogo": {
+        "url": "https://media.licdn.com/dms/image/v2/D560BAQFYnR_Zrm87Dg/company-logo_400_400/B56ZnMyVr4HUAY-/0/1760077372453/cisco_logo?e=1773273600&v=beta&t=zdRf1wmVx_zkSLCslIqe9VE7uJv9Kitb2o8Dxqn9OXM",
+        "sizes": [
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D560BAQFYnR_Zrm87Dg/company-logo_400_400/B56ZnMyVr4HUAY-/0/1760077372453/cisco_logo?e=1773273600&v=beta&t=zdRf1wmVx_zkSLCslIqe9VE7uJv9Kitb2o8Dxqn9OXM",
+            "width": 400,
+            "height": 400,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D560BAQFYnR_Zrm87Dg/company-logo_200_200/B56ZnMyVr4HUAI-/0/1760077372453/cisco_logo?e=1773273600&v=beta&t=TZuPff3bMZtBPyMDBzDcQ5ck611gGIlNeMY-yDLCGnM",
+            "width": 200,
+            "height": 200,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D560BAQFYnR_Zrm87Dg/company-logo_100_100/B56ZnMyVr4HUAQ-/0/1760077372453/cisco_logo?e=1773273600&v=beta&t=TGCY93d4NBTSgA7H8tX3Hi-heRTG3qX8fpGVu_l5bSY",
+            "width": 100,
+            "height": 100,
+            "expiresAt": 1773273600000
+          }
+        ]
+      }
+    },
+    {
+      "title": "Cisco Certified Network Associate",
+      "issuedAt": "Issued Jan 2016 \u00b7 Expired Jan 2019",
+      "issuedBy": "Cisco",
+      "issuedByLink": null,
+      "issuedByLogo": {
+        "url": null,
+        "sizes": []
+      }
+    }
+  ],
+  "projects": [
+    {
+      "title": "Technical Support Organization (Local Technical Assistance Centre), GSM RAN",
+      "duration": "Aug 2009 - Oct 2012",
+      "startDate": {
+        "month": "Aug",
+        "year": 2009,
+        "text": "Aug 2009"
+      },
+      "endDate": {
+        "month": "Oct",
+        "year": 2012,
+        "text": "Oct 2012"
+      },
+      "associatedWith": "Associated with Alcatel-Lucent",
+      "associatedWithLink": null,
+      "description": null
+    },
+    {
+      "title": "Managed Services, Mobinil GSM, Egypt",
+      "duration": "Feb 2012 - Mar 2012",
+      "startDate": {
+        "month": "Feb",
+        "year": 2012,
+        "text": "Feb 2012"
+      },
+      "endDate": {
+        "month": "Mar",
+        "year": 2012,
+        "text": "Mar 2012"
+      },
+      "associatedWith": "Associated with Alcatel-Lucent",
+      "associatedWithLink": null,
+      "description": null
+    },
+    {
+      "title": "Deployment Support (Back Office Support for RAN Engineers), Mobilink GSM, Pakistan",
+      "duration": "Oct 2008 - Jul 2009",
+      "startDate": {
+        "month": "Oct",
+        "year": 2008,
+        "text": "Oct 2008"
+      },
+      "endDate": {
+        "month": "Jul",
+        "year": 2009,
+        "text": "Jul 2009"
+      },
+      "associatedWith": "Associated with Alcatel-Lucent",
+      "associatedWithLink": null,
+      "description": null
+    },
+    {
+      "title": "Alcatel-Lucent Swap with Motorola RAN, Mobilink GSM, Pakistan",
+      "duration": "Mar 2008 - Oct 2008",
+      "startDate": {
+        "month": "Mar",
+        "year": 2008,
+        "text": "Mar 2008"
+      },
+      "endDate": {
+        "month": "Oct",
+        "year": 2008,
+        "text": "Oct 2008"
+      },
+      "associatedWith": "Associated with Alcatel-Lucent",
+      "associatedWithLink": null,
+      "description": null
+    },
+    {
+      "title": "OMC Optimization, Mobilink GSM, Pakistan",
+      "duration": "Jan 2008 - Mar 2008",
+      "startDate": {
+        "month": "Jan",
+        "year": 2008,
+        "text": "Jan 2008"
+      },
+      "endDate": {
+        "month": "Mar",
+        "year": 2008,
+        "text": "Mar 2008"
+      },
+      "associatedWith": "Associated with Alcatel-Lucent",
+      "associatedWithLink": null,
+      "description": null
+    }
+  ],
+  "volunteering": [],
+  "receivedRecommendations": [
+    {
+      "givenBy": "Waqas Qureshi",
+      "givenByHeadline": "Enterprise Sales & Business Growth Leader | ICT, Cloud & Digital Solutions | Strategic Partnerships | Revenue Growth & Market Expansion",
+      "givenAt": "April 9, 2013, Waqas managed Nauman directly",
+      "givenByLink": "https://www.linkedin.com/in/waqasahmedqureshi",
+      "description": "I recruited and directly managed Nauman for almost 2 years at the very beginning of his career. \r\n\r\nNauman maintains an aptitude to succeed from the very beginning, constantly looking for new challenges and avenues to enhance his skills and knowledge. He is a self motivated and passionate individual. He is self learner and possesses excellent communication skills.\r\n\r\nBesides his professional attitude towards his work, he is a well mannered person. I wish him every success in his professional carrier.",
+      "givenByPicture": {
+        "url": "https://media.licdn.com/dms/image/v2/D4E03AQHPPGxB7iRt9w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1672828083079?e=1773273600&v=beta&t=4f1TT3sqcvbFONXf1uLYsDSSOZvZO4zyBsKztte67DI",
+        "sizes": [
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4E03AQHPPGxB7iRt9w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1672828083079?e=1773273600&v=beta&t=4f1TT3sqcvbFONXf1uLYsDSSOZvZO4zyBsKztte67DI",
+            "width": 800,
+            "height": 800,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4E03AQHPPGxB7iRt9w/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1672828083079?e=1773273600&v=beta&t=PrIpzMFn48HVFftDCbdG3nkgIyKUWttvHIZG4Rs5RM4",
+            "width": 400,
+            "height": 400,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4E03AQHPPGxB7iRt9w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1672828083079?e=1773273600&v=beta&t=AOb3sLXHMFqiLuqP9mK64-b82O2oWgUvY4r85W0fEjM",
+            "width": 200,
+            "height": 200,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4E03AQHPPGxB7iRt9w/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1672828083079?e=1773273600&v=beta&t=Z27tDT759XmDhWONlcKZ-Bztvz36NAcUHUBJiGbvGY4",
+            "width": 100,
+            "height": 100,
+            "expiresAt": 1773273600000
+          }
+        ]
+      }
+    },
+    {
+      "givenBy": "Mudassar Hussain PMP\u00ae",
+      "givenByHeadline": "Customer Delivery Manager  at Nokia",
+      "givenAt": "March 28, 2013, Mudassar managed Nauman directly",
+      "givenByLink": "https://www.linkedin.com/in/mudassar-hussain-pmp%C2%AE-52834b28",
+      "description": "Nauman worked as Senior Technical Support Engineer under my competence for a period of 5 years. During my tenure with Nauman I found him an extremely hard-working and dedicated professional.\r\nHe was always able to accomplish any task assigned to him with extremely satisfactory results. He was able to handle pressure situations including customer interaction in a calm and collective manner. He was always helpful and supportive towards his peers and always motivated in increasing his technical knowledge.\r\nHe possesses strong interpersonal as well as technical skills and is able to excel in field of his choosing. I would highly recommend him for any position, as he naturally rises to the occasion when presented with any opportunity.",
+      "givenByPicture": {
+        "url": "https://media.licdn.com/dms/image/v2/D4D03AQGb0uOjNYKE8Q/profile-displayphoto-crop_800_800/B4DZpyDog3GwAM-/0/1762850147229?e=1773273600&v=beta&t=kC03FNXSnzvYMQwQwRUgyrlTqesPbL27xAT-vb5IvyY",
+        "sizes": [
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4D03AQGb0uOjNYKE8Q/profile-displayphoto-crop_800_800/B4DZpyDog3GwAM-/0/1762850147229?e=1773273600&v=beta&t=kC03FNXSnzvYMQwQwRUgyrlTqesPbL27xAT-vb5IvyY",
+            "width": 800,
+            "height": 800,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4D03AQGb0uOjNYKE8Q/profile-displayphoto-scale_400_400/B4DZpyDog3GwAk-/0/1762850147319?e=1773273600&v=beta&t=C2HQ6UgsfdTPsgqhzILgflVmOfrYkFN7J1Euyz4yr-E",
+            "width": 400,
+            "height": 400,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4D03AQGb0uOjNYKE8Q/profile-displayphoto-scale_200_200/B4DZpyDog3GwAc-/0/1762850147319?e=1773273600&v=beta&t=P2F_eNZZO3Kzji9VmrcbW7AU2jud2fldOREl3ksnvE4",
+            "width": 200,
+            "height": 200,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4D03AQGb0uOjNYKE8Q/profile-displayphoto-scale_100_100/B4DZpyDog3GwAg-/0/1762850147319?e=1773273600&v=beta&t=HGFPtU0sXFhOsILUn1ItH_RwbKSOh5awPESVMN1HeF8",
+            "width": 100,
+            "height": 100,
+            "expiresAt": 1773273600000
+          }
+        ]
+      }
+    },
+    {
+      "givenBy": "Zubair Ishfaq",
+      "givenByHeadline": "Cyber Security Analyst at Ericsson",
+      "givenAt": "March 14, 2013, Zubair and Nauman studied together",
+      "givenByLink": "https://www.linkedin.com/in/zubair-ishfaq-7a848523",
+      "description": "I have been extremely privileged to study with Nauman during Bachelors who was an active and vibrant member in our team. He definitely stands out as extremely intelligent, innovative, great team player, passionate, dynamic, 100% responsible and above all full of energy. He contributed significantly while studying  in various semester projects during Engineering tenure. I always have had positive feedback from people who worked with him in Alcatel-Lucent so I would like to wish him a great success in future and strongly recommend him for technical lead position  as he is quite versatile and adaptive to any environment.",
+      "givenByPicture": {
+        "url": "https://media.licdn.com/dms/image/v2/C5603AQGFQuYf4dtTCg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1606380691296?e=1773273600&v=beta&t=fehTmAaAX_CecZhgArhOu5zovZTcEpv9qfQkWic0sow",
+        "sizes": [
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C5603AQGFQuYf4dtTCg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1606380691296?e=1773273600&v=beta&t=fehTmAaAX_CecZhgArhOu5zovZTcEpv9qfQkWic0sow",
+            "width": 360,
+            "height": 360,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C5603AQGFQuYf4dtTCg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1606380691296?e=1773273600&v=beta&t=ZdCRLarcfSZlpro6sLhjHQ1cXsVp3W6QEHOn63LZ5HE",
+            "width": 360,
+            "height": 360,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C5603AQGFQuYf4dtTCg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1606380691296?e=1773273600&v=beta&t=Wx4ngz0vXwZAQRzVdCiMAzygPbf3TiNnWq-qD68VL-w",
+            "width": 200,
+            "height": 200,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C5603AQGFQuYf4dtTCg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1606380691296?e=1773273600&v=beta&t=C_0xFeyOcW5zDjuEER7So7SO9UowxseEZb6aZJVrY60",
+            "width": 100,
+            "height": 100,
+            "expiresAt": 1773273600000
+          }
+        ]
+      }
+    },
+    {
+      "givenBy": "Mobasher Rahman",
+      "givenByHeadline": "MS Solution Consultant at Nokia",
+      "givenAt": "February 16, 2013, Mobasher was senior to Nauman but didn't manage Nauman directly",
+      "givenByLink": "https://www.linkedin.com/in/mobasher-rahman-00120812",
+      "description": "Nauman is a thorough telecom professional possessing deep technical knowledge as well as excellent interpersonal skills. His approach towards the analysis and resolution of complex issues in mobile network is commendable. He is a target oriented engineer and always ensures that he completes his assigned tasks inline with the standard processes and best practices, while respecting the given timelines.",
+      "givenByPicture": {
+        "url": "https://media.licdn.com/dms/image/v2/C5603AQHebH8H0anl_Q/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1517782782905?e=1773273600&v=beta&t=0EOj7Ec3WnU2xF0gaczW8pxY0eYcz8SJtzieBa0NL3U",
+        "sizes": [
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C5603AQHebH8H0anl_Q/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1517782782905?e=1773273600&v=beta&t=0EOj7Ec3WnU2xF0gaczW8pxY0eYcz8SJtzieBa0NL3U",
+            "width": 368,
+            "height": 368,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C5603AQHebH8H0anl_Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1517782782919?e=1773273600&v=beta&t=M_XlIE7GLvvP8RvPPQlANzXaEW4mahaXTppwPB62hbs",
+            "width": 368,
+            "height": 368,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C5603AQHebH8H0anl_Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1517782783118?e=1773273600&v=beta&t=bZHdhCyXOmDsslYy0mMrC47LCkr33liEDpGcNmVTlHI",
+            "width": 200,
+            "height": 200,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C5603AQHebH8H0anl_Q/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1517782782915?e=1773273600&v=beta&t=RMkmSl9B_ztySfvyjbaxoSyKuxwVNljp1ly0dBIFKME",
+            "width": 100,
+            "height": 100,
+            "expiresAt": 1773273600000
+          }
+        ]
+      }
+    },
+    {
+      "givenBy": "Saqib Saeed",
+      "givenByHeadline": "Analytics Engineer | Microsoft Fabric & BI Specialist ",
+      "givenAt": "February 14, 2013, Saqib and Nauman studied together",
+      "givenByLink": "https://www.linkedin.com/in/saqib-saeed-997a8310",
+      "description": "Nauman is very close friend mine. I know him from my university days. Attributes which I have found best in Nauman is integrity and sincerity towards his assignments.\r\n\r\nHe has sound knowlegde of his field, as far as I know him he takes every task seriously and use to show passion towards its accomplishment.He can be very handy source for any team.\r\n\r\nNauman has excellent work ethics and shows total dedication in an assigned task. His analytical skills complement his proactive attitude and make him a great asset for any engineering team. I wish him best of luck for his future career.",
+      "givenByPicture": {
+        "url": "https://media.licdn.com/dms/image/v2/C5603AQHfdzMXUF1LGw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1631021464066?e=1773273600&v=beta&t=bQxvoB0_6s8MnmCtouDSA8law8ymRkl4_LwppM1lBNs",
+        "sizes": [
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C5603AQHfdzMXUF1LGw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1631021464066?e=1773273600&v=beta&t=bQxvoB0_6s8MnmCtouDSA8law8ymRkl4_LwppM1lBNs",
+            "width": 342,
+            "height": 342,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C5603AQHfdzMXUF1LGw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1631021464066?e=1773273600&v=beta&t=odvlyx6xP-74V44XzHhE-HB9fumexfILLBWfjXHRm7M",
+            "width": 342,
+            "height": 342,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C5603AQHfdzMXUF1LGw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1631021464066?e=1773273600&v=beta&t=Atl2VcGS7JZA0VCilNo926eTWlcXal3RS9cBlF7aP6A",
+            "width": 200,
+            "height": 200,
+            "expiresAt": 1773273600000
+          },
+          {
+            "url": "https://media.licdn.com/dms/image/v2/C5603AQHfdzMXUF1LGw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1631021464066?e=1773273600&v=beta&t=DljnW3oYVnN_mC_z6uBcIyZqWWotw6yBO_FWae7sVNI",
+            "width": 100,
+            "height": 100,
+            "expiresAt": 1773273600000
+          }
+        ]
+      }
+    }
+  ],
+  "skills": [
+    {
+      "name": "Security Architecture Design",
+      "positions": [
+        "Cyber Security Engineer at Standard Industries"
+      ]
+    },
+    {
+      "name": "Network Security Implementation",
+      "positions": [
+        "Cyber Security Engineer at Standard Industries"
+      ]
+    },
+    {
+      "name": "Palo Alto Networks",
+      "positions": [
+        "Cyber Security Engineer at Standard Industries"
+      ]
+    },
+    {
+      "name": "Cisco Certified Network Professional"
+    },
+    {
+      "name": "Stakeholder Management",
+      "positions": [
+        "2 experiences at London Underground - Transport of London"
+      ]
+    },
+    {
+      "name": "Computer Networking",
+      "positions": [
+        "2 experiences across London Underground - Transport of London and 1 other company"
+      ]
+    },
+    {
+      "name": "Firewalls",
+      "positions": [
+        "3 experiences across London Underground - Transport of London and 1 other company"
+      ]
+    },
+    {
+      "name": "Cyber Defense",
+      "positions": [
+        "2 experiences at London Underground - Transport of London"
+      ]
+    },
+    {
+      "name": "Threat & Vulnerability Management",
+      "positions": [
+        "3 experiences across London Underground - Transport of London and 1 other company"
+      ]
+    },
+    {
+      "name": "Infrastructure",
+      "positions": [
+        "2 experiences across London Underground - Transport of London and 1 other company"
+      ]
+    },
+    {
+      "name": "Network Security",
+      "positions": [
+        "4 experiences across Standard Industries and 2 other companies"
+      ]
+    },
+    {
+      "name": "Cyber Risk Management",
+      "positions": [
+        "2 experiences at London Underground - Transport of London"
+      ]
+    },
+    {
+      "name": "Computer Network Operations",
+      "endorsements": "13 endorsements"
+    },
+    {
+      "name": "Customer Satisfaction",
+      "endorsements": "6 endorsements"
+    },
+    {
+      "name": "NOC",
+      "endorsements": "4 endorsements"
+    },
+    {
+      "name": "Customer Service",
+      "endorsements": "4 endorsements"
+    },
+    {
+      "name": "Cisco Certified",
+      "endorsements": "4 endorsements"
+    },
+    {
+      "name": "Technical Support",
+      "endorsements": "3 endorsements"
+    },
+    {
+      "name": "Sun Application Server",
+      "endorsements": "2 endorsements"
+    },
+    {
+      "name": "Wireshark"
+    },
+    {
+      "name": "Cyber Ark",
+      "positions": [
+        "Cyber Security Engineer at Standard Industries"
+      ]
+    },
+    {
+      "name": "Active Directory",
+      "positions": [
+        "Cyber Security Engineer at Standard Industries"
+      ]
+    },
+    {
+      "name": "SD-WAN",
+      "positions": [
+        "Cyber Security Engineer at Standard Industries"
+      ]
+    },
+    {
+      "name": "Claroty",
+      "positions": [
+        "Cyber Security Engineer at Standard Industries"
+      ]
+    },
+    {
+      "name": "Network Switches",
+      "positions": [
+        "2 experiences across London Underground - Transport of London and 1 other company"
+      ]
+    },
+    {
+      "name": "RAN",
+      "endorsements": "20 endorsements"
+    },
+    {
+      "name": "Linux",
+      "endorsements": "9 endorsements"
+    },
+    {
+      "name": "Cisco IOS"
+    },
+    {
+      "name": "Windows Server"
+    },
+    {
+      "name": "Cisco Routers",
+      "endorsements": "1 endorsement"
+    },
+    {
+      "name": "Cross-team Collaboration"
+    },
+    {
+      "name": "Routing Protocols"
+    },
+    {
+      "name": "Cisco Switches"
+    },
+    {
+      "name": "Network Administration"
+    },
+    {
+      "name": "Technical Troubleshooting"
+    }
+  ],
+  "publications": [],
+  "courses": [],
+  "patents": [],
+  "honorsAndAwards": [],
+  "languages": [
+    {
+      "name": "English",
+      "proficiency": "Native or bilingual proficiency"
+    },
+    {
+      "name": "Urdu",
+      "proficiency": "Native or bilingual proficiency"
+    }
+  ],
+  "causes": [],
+  "featured": null,
+  "composeOptionType": "UPSELL",
+  "moreProfiles": [
+    {
+      "id": "ACoAAAydwE8BNnFMeSse2CWhrV1yule9-Mq5Swo",
+      "firstName": "Barnaby",
+      "lastName": "Sanders",
+      "publicIdentifier": "barnaby-sanders-37ba775a",
+      "linkedinUrl": "https://www.linkedin.com/in/barnaby-sanders-37ba775a"
+    },
+    {
+      "id": "ACoAABEbou4BKCQkami-Q56HoyIPAX7ksDReK9w",
+      "firstName": "Rebekah",
+      "lastName": "P.",
+      "publicIdentifier": "rebekah-peter",
+      "linkedinUrl": "https://www.linkedin.com/in/rebekah-peter"
+    },
+    {
+      "id": "ACoAAATgDjABqKIEeFA5veRrPED84PTWPuVi9i0",
+      "firstName": "Zubair",
+      "lastName": "Ishfaq",
+      "publicIdentifier": "zubair-ishfaq-7a848523",
+      "linkedinUrl": "https://www.linkedin.com/in/zubair-ishfaq-7a848523"
+    },
+    {
+      "id": "ACoAAECUX1YBWb1xCwFkc0um5YJv3grd7LTPKY4",
+      "firstName": "Vasu",
+      "lastName": "K",
+      "publicIdentifier": "vasu-k-646a25262",
+      "linkedinUrl": "https://www.linkedin.com/in/vasu-k-646a25262"
+    },
+    {
+      "id": "ACoAAAM9WZsBOd0eO8OY8HcMp74JQjZdZTaeTno",
+      "firstName": "Tahir",
+      "lastName": "Muhammad",
+      "publicIdentifier": "tahir-muhammad-a4b25116",
+      "linkedinUrl": "https://www.linkedin.com/in/tahir-muhammad-a4b25116"
+    },
+    {
+      "id": "ACoAAAqrh-QBsuqmV1GwX36q8UCiuOeK7N9MDvA",
+      "firstName": "Qammer H.",
+      "lastName": "Abbasi,  CEng, FEAI, FIET, FRSE",
+      "publicIdentifier": "qammer-h-abbasi-ceng-feai-fiet-frse-a04b4b4b",
+      "linkedinUrl": "https://www.linkedin.com/in/qammer-h-abbasi-ceng-feai-fiet-frse-a04b4b4b"
+    },
+    {
+      "id": "ACoAADKLHNcBVwQQUain45y58wj4CKqZtCRMco0",
+      "firstName": "Souheil",
+      "lastName": "Abou El Zolof",
+      "publicIdentifier": "souheil-abou-el-zolof-9b3b9b1b7",
+      "linkedinUrl": "https://www.linkedin.com/in/souheil-abou-el-zolof-9b3b9b1b7"
+    },
+    {
+      "id": "ACoAABUyzgIBXE6VBOfJa8CRJzvXs3okrI3kDXk",
+      "firstName": "Stefan",
+      "lastName": "Vitalis",
+      "publicIdentifier": "stefan-vitalis",
+      "linkedinUrl": "https://www.linkedin.com/in/stefan-vitalis"
+    },
+    {
+      "id": "ACoAAACll0gBdJVU2tq2A7ZcRa4aeOGFDK0ktcc",
+      "firstName": "Scott",
+      "lastName": "W.",
+      "publicIdentifier": "scott-w-2347743",
+      "linkedinUrl": "https://www.linkedin.com/in/scott-w-2347743"
+    },
+    {
+      "id": "ACoAAAZnG5QBZTT_gQpwVV9AtPdu7PoMQTI9cDc",
+      "firstName": "Hugh",
+      "lastName": "Saunders",
+      "publicIdentifier": "hugh-saunders-818b842b",
+      "linkedinUrl": "https://www.linkedin.com/in/hugh-saunders-818b842b"
+    },
+    {
+      "id": "ACoAAABFHpsBzsVFDuP_Ez8RJHynbA57vyv7ZIE",
+      "firstName": "Steven",
+      "lastName": "Decker",
+      "publicIdentifier": "skdecker",
+      "linkedinUrl": "https://www.linkedin.com/in/skdecker"
+    },
+    {
+      "id": "ACoAAANOh0EBcIlteUoirPCLl3QTeeaC8Jbn4EA",
+      "firstName": "Waqas",
+      "lastName": "Qureshi",
+      "publicIdentifier": "waqasahmedqureshi",
+      "linkedinUrl": "https://www.linkedin.com/in/waqasahmedqureshi"
+    },
+    {
+      "id": "ACoAAAOxxu8BQgKtqc0SOPwYs4YGiT3gYQTIGro",
+      "firstName": "Imran",
+      "lastName": "Aziz",
+      "publicIdentifier": "imran-aziz-57b91118",
+      "linkedinUrl": "https://www.linkedin.com/in/imran-aziz-57b91118"
+    },
+    {
+      "id": "ACoAAAJJOcgBYIGR_MTbiUkNQ4NNiahyAZGIXqY",
+      "firstName": "Faze",
+      "lastName": "Iqbal",
+      "publicIdentifier": "faiiqb",
+      "linkedinUrl": "https://www.linkedin.com/in/faiiqb"
+    },
+    {
+      "id": "ACoAAAOu4G4BzPBOHBepd1bNxXOGP6llf4hzzuM",
+      "firstName": "Dave",
+      "lastName": "Bebbington",
+      "publicIdentifier": "dave-bebbington-57a83b18",
+      "linkedinUrl": "https://www.linkedin.com/in/dave-bebbington-57a83b18"
+    },
+    {
+      "id": "ACoAAAWjFFIBcBUUw8fbplXc0_x_WwrXsrPpNTk",
+      "firstName": "Andy",
+      "lastName": "Rowley",
+      "publicIdentifier": "andy-rowley-15680a27",
+      "linkedinUrl": "https://www.linkedin.com/in/andy-rowley-15680a27"
+    },
+    {
+      "id": "ACoAABe2jMMBeieCfMdbMx_tN9JEQ0CSLxltx2c",
+      "firstName": "Heather",
+      "lastName": "Milton-Brooks",
+      "publicIdentifier": "heather-milton-brooks-28329bb1",
+      "linkedinUrl": "https://www.linkedin.com/in/heather-milton-brooks-28329bb1"
+    },
+    {
+      "id": "ACoAACHvq-MBL2Z3FDoEtABLr-RkuDS86ffh0g0",
+      "firstName": "zahid",
+      "lastName": "iqbal",
+      "publicIdentifier": "zahid-iqbal-b9781313a",
+      "linkedinUrl": "https://www.linkedin.com/in/zahid-iqbal-b9781313a"
+    },
+    {
+      "id": "ACoAADSBYBEByAeTxNuEM0XJDUnWOtud6DkRvOY",
+      "firstName": "Sullivan",
+      "lastName": "Ashurst",
+      "publicIdentifier": "sullivan-ashurst-729014207",
+      "linkedinUrl": "https://www.linkedin.com/in/sullivan-ashurst-729014207"
+    },
+    {
+      "id": "ACoAAChJ7i4BJkAfXIOBJjse96jC9C2xlPOAGj4",
+      "firstName": "Zeba",
+      "lastName": "Rana",
+      "publicIdentifier": "zeba-rana-43a45116a",
+      "linkedinUrl": "https://www.linkedin.com/in/zeba-rana-43a45116a"
+    },
+    {
+      "id": "ACoAAAH8zgYBvmYCiPkjD0OYcnBwtRDA3UP7C5o",
+      "firstName": "Steve",
+      "lastName": "Schroeder",
+      "position": "Project Manager at Standard Industries",
+      "publicIdentifier": "steveschroederarch",
+      "linkedinUrl": "https://www.linkedin.com/in/steveschroederarch"
+    },
+    {
+      "id": "ACoAACNG7bkB8OeBlQg5LCrctw2ou3dAVMY6x-E",
+      "firstName": "Meaggen",
+      "lastName": "A.",
+      "position": "Director, Office of the Chief Executive Officer",
+      "publicIdentifier": "meaggen-a-3b5262146",
+      "linkedinUrl": "https://www.linkedin.com/in/meaggen-a-3b5262146"
+    },
+    {
+      "id": "ACoAACnQGf0BU92JOvjknCsn5nt0uU8pO1Hy5IU",
+      "firstName": "Peter",
+      "lastName": "Mrksic",
+      "position": "Free",
+      "publicIdentifier": "peter-mrksic-b65b22176",
+      "linkedinUrl": "https://www.linkedin.com/in/peter-mrksic-b65b22176"
+    },
+    {
+      "id": "ACoAADCt-DwBPb1gq5V15DO3XrFAbKN27nl13-Q",
+      "firstName": "Hamilton",
+      "lastName": "South",
+      "position": "Vice Chairman, Standard Industries",
+      "publicIdentifier": "hamilton-south",
+      "linkedinUrl": "https://www.linkedin.com/in/hamilton-south"
+    },
+    {
+      "id": "ACoAABpeHjUBiSxNcLuI0XBs-1fJQm9H1TTa0QU",
+      "firstName": "Alyssa",
+      "lastName": "Orrico",
+      "position": "Executive Assistant",
+      "publicIdentifier": "alyssa-orrico-585198104",
+      "linkedinUrl": "https://www.linkedin.com/in/alyssa-orrico-585198104"
+    },
+    {
+      "id": "ACoAAAANWTMBfdPrCE1flW5wW1s1xQu_J-u9Xg8",
+      "firstName": "Sanjay",
+      "lastName": "K.",
+      "position": "ex-Amazon, Vice President, AI and New Ventures, Product Management,  GTM Operations, Digital Transformation leader",
+      "publicIdentifier": "ksanjay",
+      "linkedinUrl": "https://www.linkedin.com/in/ksanjay"
+    },
+    {
+      "id": "ACoAAANm55UBvWCKKZAnYoFVvE5SOq-_3dgskBE",
+      "firstName": "Anoma Nayanakthani",
+      "lastName": "Ranaraja",
+      "position": "DGM HR and Operation",
+      "publicIdentifier": "anoma-nayanakthani-ranaraja-a4514517",
+      "linkedinUrl": "https://www.linkedin.com/in/anoma-nayanakthani-ranaraja-a4514517"
+    },
+    {
+      "id": "ACoAADLckj8BKVI4Xw2dL7YSfz4nIJeS4-qGBig",
+      "firstName": "Rehani",
+      "lastName": "Perera",
+      "position": "Post Graduate Student at Kensley Graduate School",
+      "publicIdentifier": "rehani-perera-27b9351b9",
+      "linkedinUrl": "https://www.linkedin.com/in/rehani-perera-27b9351b9"
+    },
+    {
+      "id": "ACoAAAC3XeQBKRY5OqDH8RbIo13aixbVPR8sLlA",
+      "firstName": "Ohad",
+      "lastName": "A.",
+      "position": "CPO I CEO I VP Product I Digital Transformation",
+      "publicIdentifier": "ohad-a-4300364",
+      "linkedinUrl": "https://www.linkedin.com/in/ohad-a-4300364"
+    },
+    {
+      "id": "ACoAAAaqxnMBIBTxmKIHz8jp0Lps4EXoQxMh798",
+      "firstName": "Andrew",
+      "lastName": "Marijan",
+      "position": "Executive Desktop Support Technician @ Standard Industries | Technical Support",
+      "publicIdentifier": "andrew-marijan-04356331",
+      "linkedinUrl": "https://www.linkedin.com/in/andrew-marijan-04356331"
+    }
+  ],
+  "openProfile": false,
+  "_meta": {
+    "pagination": {
+      "totalElements": 134760,
+      "totalPages": 100,
+      "pageNumber": 1,
+      "previousElements": 0,
+      "pageSize": 25
+    }
+  }
+}

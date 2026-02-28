@@ -47,7 +47,7 @@ export default function CandidateCard({ result }) {
             const resp = await fetch('http://localhost:8000/send-outreach', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: json.stringify({
+                body: JSON.stringify({
                     candidate_id: result.candidate_id,
                     personalized_message: messageText
                 })
@@ -153,8 +153,8 @@ export default function CandidateCard({ result }) {
                         </span>
                     ))}
                 </div>
-                
-                <button 
+
+                <button
                     onClick={openMessaging}
                     className="flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white text-[11px] font-bold px-4 py-2 rounded-lg transition-all shadow-lg shadow-brand-500/20"
                 >
@@ -169,23 +169,23 @@ export default function CandidateCard({ result }) {
                         <h4 className="text-brand-400 font-bold text-xs uppercase tracking-widest">Personalized Outreach</h4>
                         <button onClick={() => setIsMessaging(false)} className="text-slate-500 hover:text-white">✕</button>
                     </div>
-                    
+
                     {status && <div className="text-[10px] text-brand-300 mb-2 animate-pulse">{status}</div>}
-                    
-                    <textarea 
+
+                    <textarea
                         value={messageText}
                         onChange={(e) => setMessageText(e.target.value)}
                         className="flex-1 bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-slate-200 resize-none focus:outline-none focus:border-brand-500/50 mb-4 font-sans leading-relaxed"
                     />
 
                     <div className="flex gap-2">
-                        <button 
+                        <button
                             onClick={() => setIsMessaging(false)}
                             className="flex-1 px-4 py-2 rounded-lg border border-slate-700 text-slate-400 text-[11px] font-bold hover:bg-slate-800 transition-all"
                         >
                             Cancel
                         </button>
-                        <button 
+                        <button
                             onClick={sendMessage}
                             disabled={isSending}
                             className="flex-[2] px-4 py-2 rounded-lg bg-brand-600 text-white text-[11px] font-bold hover:bg-brand-500 transition-all shadow-lg shadow-brand-500/20 disabled:opacity-50"
