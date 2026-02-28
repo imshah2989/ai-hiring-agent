@@ -59,12 +59,12 @@ class GoogleSheetsExporter:
             print("⚠️  Google Sheets export disabled (gspread not installed).")
             return
 
-        spreadsheet_id = os.getenv("GOOGLE_SHEETS_SPREADSHEET_ID", "")
-        google_sheets_json = os.getenv("GOOGLE_SHEETS_JSON", "")
+        creds_json = os.getenv("GOOGLE_SHEETS_CREDENTIALS_JSON", "")
         creds_file = os.getenv("GOOGLE_SHEETS_CREDENTIALS_FILE", "")
+        spreadsheet_id = os.getenv("GOOGLE_SHEETS_SPREADSHEET_ID", "")
 
-        if not spreadsheet_id:
-            print("⚠️  Google Sheets export disabled (GOOGLE_SHEETS_SPREADSHEET_ID not set).")
+        if not (creds_json or creds_file) or not spreadsheet_id:
+            print("⚠️  Google Sheets export disabled (credentials or spreadsheet ID not configured).")
             return
 
         try:
@@ -73,35 +73,21 @@ class GoogleSheetsExporter:
                 "https://www.googleapis.com/auth/drive",
             ]
             
-            # 1. Try to load from JSON string (Perfect for Cloud Secrets)
-            if google_sheets_json:
-                try:
-                    creds_dict = json.loads(google_sheets_json)
-                    credentials = Credentials.from_service_account_info(creds_dict, scopes=scopes)
-                    print("✅ Google Sheets: Using credentials from GOOGLE_SHEETS_JSON secret.")
-                except Exception as e:
-                    print(f"⚠️  Failed to parse GOOGLE_SHEETS_JSON secret: {e}")
-                    credentials = None
+            if creds_json:
+                # Load directly from JSON string (Best for Cloud/Secrets)
+                creds_data = json.loads(creds_json)
+                credentials = Credentials.from_service_account_info(creds_data, scopes=scopes)
             else:
-                credentials = None
-
-            # 2. Fallback to file-based auth (for local development)
-            if not credentials and creds_file:
                 # Resolve credentials path relative to backend dir
                 if not os.path.isabs(creds_file):
                     backend_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
                     creds_file = os.path.join(backend_dir, creds_file)
 
-                if os.path.exists(creds_file):
-                    credentials = Credentials.from_service_account_file(creds_file, scopes=scopes)
-                    print(f"✅ Google Sheets: Using credentials from file: {creds_file}")
-                else:
+                if not os.path.exists(creds_file):
                     print(f"⚠️  Google Sheets credentials file not found: {creds_file}")
-
-            if not credentials:
-                print("⚠️  Google Sheets export disabled (No valid credentials found).")
-                return
-
+                    return
+                credentials = Credentials.from_service_account_file(creds_file, scopes=scopes)
+                
             self.client = gspread.authorize(credentials)
             self.spreadsheet = self.client.open_by_key(spreadsheet_id)
             self.enabled = True
