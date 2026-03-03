@@ -1,4 +1,5 @@
 import os
+import re
 import json
 import time
 from datetime import datetime, timezone
@@ -8,18 +9,19 @@ from .models import CandidateProfile
 
 # ─── SEARCH CONFIGURATION ───────────────────────────────────────────────
 # Change this number to control how many profiles are scraped per search.
-# For TESTING → 50
-# For PRODUCTION → 2500 (LinkedIn's hard cap per query)
-MAX_SEARCH_PROFILES = 50
+# For TESTING → 20
+# For PRODUCTION → 100
+MAX_SEARCH_PROFILES = 20
 # ────────────────────────────────────────────────────────────────────────
 
 class SourcingEngine:
     """
-    Apify-powered Sourcing Funnel.
-    1. Search (LinkedIn People Search Scraper) -> Sourcing.
-    2. Profile Scrape (LinkedIn Profile Scraper) -> Deep Scrape.
-    3. Messaging (Send DM for LinkedIn) -> Outreach.
-    4. Inbox (LinkedIn Unread Messages Scraper) -> Notifications.
+    Apify-powered Sourcing Funnel (Cost-Optimized Hybrid Model).
+    
+    DISCOVERY: Uses Google X-Ray Search (FREE) to find LinkedIn URLs.
+    ENRICHMENT: Uses Harvest Profile Scraper ($4/1,000) to get full details.
+    
+    This replaces the old $100/1,000 internal LinkedIn search approach.
     """
     def __init__(self):
         self.api_token = os.getenv("APIFY_API_TOKEN")
@@ -29,90 +31,179 @@ class SourcingEngine:
         self.li_at = os.getenv("LINKEDIN_LI_AT")
         self.user_agent = os.getenv("LINKEDIN_USER_AGENT")
         
-        # Actor IDs (Using verified reliable actors)
-        # Search & Profile: https://apify.com/harvestapi/linkedin-profile-search
-        self.search_actor = "harvestapi/linkedin-profile-search"
-        # Profile Scrape: Using the same HarvestAPI actor or specialized profile scraper
+        # Actor IDs
+        # DISCOVERY (FREE): Google Search Results Scraper
+        self.google_search_actor = "apify/google-search-scraper"
+        # ENRICHMENT ($4/1k): Harvest LinkedIn Profile Scraper
         self.profile_actor = "harvestapi/linkedin-profile-scraper"
         # Messaging: https://apify.com/addeus/send-dm-for-linkedin
         self.message_actor = "addeus/send-dm-for-linkedin"
         # Inbox: https://apify.com/randominique/linkedin-get-messages-from-unread-threads
         self.inbox_actor = "randominique/linkedin-get-messages-from-unread-threads"
 
+    # ─── PHASE 1: DISCOVERY (Google X-Ray — FREE) ──────────────────────
+    def _xray_discover(self, role: str, location: str, limit: int) -> List[str]:
+        """
+        Uses Google X-Ray search to find LinkedIn profile URLs.
+        Query: site:linkedin.com/in/ "open to work" "role" "location"
+        Cost: Nearly FREE (only Apify compute, no per-result license fee).
+        """
+        # Build X-Ray query targeting LinkedIn profiles with "open to work"
+        xray_query = f'site:linkedin.com/in/ "{role}" "{location}" "open to work"'
+        
+        print(f"  🔍 X-RAY DISCOVERY: Googling '{xray_query}'...")
+        print(f"  🔍 Looking for up to {limit} LinkedIn URLs...")
+
+        # Google returns ~10 results per page. We need enough pages.
+        pages_needed = max(1, (limit + 9) // 10)
+
+        run_input = {
+            "queries": xray_query,
+            "maxPagesPerQuery": pages_needed,
+            "resultsPerPage": 10,
+            "languageCode": "en",
+            "mobileResults": False,
+        }
+
+        try:
+            run = self.client.actor(self.google_search_actor).call(run_input=run_input)
+            
+            linkedin_urls = []
+            seen = set()
+            for item in self.client.dataset(run["defaultDatasetId"]).iterate_items():
+                # Google search results have an "organicResults" array
+                organic = item.get("organicResults", [])
+                for result in organic:
+                    url = result.get("url", "")
+                    # Only keep real LinkedIn profile URLs
+                    if "linkedin.com/in/" in url and url not in seen:
+                        # Clean the URL (remove query params)
+                        clean_url = url.split("?")[0]
+                        if clean_url not in seen:
+                            seen.add(clean_url)
+                            linkedin_urls.append(clean_url)
+                            if len(linkedin_urls) >= limit:
+                                break
+                    if len(linkedin_urls) >= limit:
+                        break
+            
+            print(f"  ✅ X-RAY DISCOVERY: Found {len(linkedin_urls)} LinkedIn URLs from Google.")
+            return linkedin_urls
+
+        except Exception as e:
+            print(f"  ❌ X-RAY DISCOVERY Error: {e}")
+            return []
+
+    # ─── PHASE 2: ENRICHMENT (Harvest — $4/1,000) ─────────────────────
+    def _enrich_profiles(self, urls: List[str]) -> List[dict]:
+        """
+        Uses the Harvest LinkedIn Profile Scraper to get full profile data.
+        Cost: $4.00 per 1,000 profiles (25x cheaper than search!).
+        """
+        if not urls:
+            return []
+        
+        print(f"  📋 ENRICHMENT: Scraping {len(urls)} profiles via Harvest ($4/1k)...")
+
+        run_input = {
+            "profileUrls": urls,
+            "maxItems": len(urls),
+            "proxyConfiguration": { "useApifyProxy": True }
+        }
+
+        try:
+            run = self.client.actor(self.profile_actor).call(run_input=run_input)
+            
+            profiles = []
+            for item in self.client.dataset(run["defaultDatasetId"]).iterate_items():
+                profiles.append(item)
+            
+            print(f"  ✅ ENRICHMENT: Got {len(profiles)} full profiles.")
+            return profiles
+
+        except Exception as e:
+            print(f"  ❌ ENRICHMENT Error: {e}")
+            return []
+
+    # ─── MAIN SEARCH (Hybrid: X-Ray + Enrich) ─────────────────────────
     def search_candidates(self, role: str, location: str, limit: int = 2500) -> List[CandidateProfile]:
         """
-        Runs the Apify Search Actor to find candidates.
-        Fetches up to 2500 profiles (LinkedIn's maximum per query),
-        then filters for Open-to-Work candidates from the full pool.
+        HYBRID SEARCH (Cost-Optimized):
+        1. Google X-Ray finds LinkedIn URLs          → FREE
+        2. Harvest scrapes full profile details       → $4/1,000
+        
+        Total cost: ~$4 per 1,000 instead of $100 per 1,000.
         """
         if not self.client:
             print("⚠️ Skipping search: APIFY_API_TOKEN not set.")
             return []
 
-        print(f"SEARCH: Launching Apify Search for '{role}' in '{location}'...")
-        print(f"SEARCH: Fetching max 2500 profiles, then filtering for Open-to-Work...")
-        
-        # Prepare search keywords
-        query = f"{role} {location}"
-        
-        run_input = {
-            "searchQuery": query,
-            "maxItems": MAX_SEARCH_PROFILES,  # Change MAX_SEARCH_PROFILES at the top of this file
-            "proxyConfiguration": { "useApifyProxy": True }
-        }
+        effective_limit = min(limit, MAX_SEARCH_PROFILES)
+        print(f"\n{'='*60}")
+        print(f"🚀 HYBRID SEARCH: '{role}' in '{location}' (max {effective_limit})")
+        print(f"{'='*60}")
 
-        try:
-            run = self.client.actor(self.search_actor).call(run_input=run_input)
-            print(f"DONE: Search complete. Fetching results...")
-            
-            candidates = []
-            for item in self.client.dataset(run["defaultDatasetId"]).iterate_items():
-                # ROBUST NAME MAPPING: HarvestAPI uses firstName/lastName
-                f_name = item.get("firstName") or ""
-                l_name = item.get("lastName") or ""
-                name = item.get("fullName") or item.get("name") or f"{f_name} {l_name}".strip()
-                if not name or name.lower() == "linkedin member":
-                    name = item.get("publicIdentifier") or "Unknown Candidate"
-                
-                # Check OTW status (Both boolean and headline keyword)
-                headline = item.get("headline") or ""
-                is_otw = item.get("openToWork") is True or "open to work" in headline.lower()
-                
-                # STRICT FILTER: Only process those interested in opportunities
-                if not is_otw:
-                    continue
-
-                profile_url = item.get("linkedinUrl") or item.get("url") or item.get("profileUrl")
-                loc_obj = item.get("location")
-                location_text = ""
-                if isinstance(loc_obj, dict):
-                    location_text = loc_obj.get("linkedinText") or loc_obj.get("name") or ""
-                
-                # Capture full data
-                about = item.get("about") or item.get("summary")
-                experience = item.get("experience") or []
-                
-                candidates.append(CandidateProfile(
-                    id=profile_url or name,
-                    name=name,
-                    headline=headline,
-                    profile_url=profile_url,
-                    location=location_text,
-                    experience_text=json.dumps(experience) if experience else "",
-                    about=about,
-                    is_open_to_work=is_otw
-                ))
-            
-            print(f"DONE: Filtered for {len(candidates)} Open-to-Work candidates.")
-            return candidates
-
-        except Exception as e:
-            print(f"ERROR: Apify Search Error: {e}")
+        # PHASE 1: Discover URLs via Google X-Ray (FREE)
+        urls = self._xray_discover(role, location, effective_limit)
+        if not urls:
+            print("⚠️ No LinkedIn URLs found via X-Ray. Try a different role/location.")
             return []
+
+        # PHASE 2: Enrich profiles via Harvest ($4/1,000)
+        raw_profiles = self._enrich_profiles(urls)
+        if not raw_profiles:
+            print("⚠️ Enrichment returned no data.")
+            return []
+
+        # PHASE 3: Map to CandidateProfile and filter for Open-to-Work
+        candidates = []
+        for item in raw_profiles:
+            f_name = item.get("firstName") or ""
+            l_name = item.get("lastName") or ""
+            name = item.get("fullName") or item.get("name") or f"{f_name} {l_name}".strip()
+            if not name or name.lower() == "linkedin member":
+                name = item.get("publicIdentifier") or "Unknown Candidate"
+            
+            headline = item.get("headline") or ""
+            is_otw = item.get("openToWork") is True or "open to work" in headline.lower()
+            
+            profile_url = item.get("linkedinUrl") or item.get("url") or item.get("profileUrl")
+            loc_obj = item.get("location")
+            location_text = ""
+            if isinstance(loc_obj, dict):
+                location_text = loc_obj.get("linkedinText") or loc_obj.get("name") or ""
+            elif isinstance(loc_obj, str):
+                location_text = loc_obj
+            
+            about = item.get("about") or item.get("summary")
+            experience = item.get("experience") or []
+            
+            candidates.append(CandidateProfile(
+                id=profile_url or name,
+                name=name,
+                headline=headline,
+                profile_url=profile_url,
+                location=location_text,
+                experience_text=json.dumps(experience) if experience else "",
+                about=about,
+                is_open_to_work=is_otw
+            ))
+
+        # Report results
+        otw_count = sum(1 for c in candidates if c.is_open_to_work)
+        print(f"\n{'='*60}")
+        print(f"✅ HYBRID SEARCH COMPLETE")
+        print(f"   Total profiles enriched: {len(candidates)}")
+        print(f"   Open-to-Work flagged:    {otw_count}")
+        print(f"{'='*60}\n")
+        
+        return candidates
 
     def deep_scrape_candidates(self, candidates: List[CandidateProfile], only_open_to_work: bool = False) -> List[CandidateProfile]:
         """
         Enriches candidates using the Apify Profile Scraper.
+        NOTE: With the Hybrid model, candidates are already enriched.
+        This is now only useful for RE-scraping to get updated data.
         """
         if not self.client or not candidates:
             return candidates
@@ -123,42 +214,28 @@ class SourcingEngine:
 
         print(f"SCRAPE: Deep Scraping {len(valid_urls)} profiles via Apify...")
         
-        run_input = {
-            "profileUrls": valid_urls,
-            "maxItems": len(valid_urls),
-            "proxyConfiguration": { "useApifyProxy": True }
-        }
+        raw_profiles = self._enrich_profiles(valid_urls)
+        
+        enriched_data = {}
+        for item in raw_profiles:
+            url = item.get("url") or item.get("profileUrl") or item.get("linkedinUrl")
+            if url:
+                enriched_data[url] = item
 
-        try:
-            run = self.client.actor(self.profile_actor).call(run_input=run_input)
-            
-            enriched_data = {}
-            for item in self.client.dataset(run["defaultDatasetId"]).iterate_items():
-                url = item.get("url") or item.get("profileUrl") or item.get("linkedinUrl")
-                if url:
-                    enriched_data[url] = item
-
-            results = []
-            for c in candidates:
-                if c.profile_url in enriched_data:
-                    data = enriched_data[c.profile_url]
-                    
-                    # Update candidate with full data
-                    c.headline = data.get("headline") or c.headline
-                    c.experience_text = json.dumps(data.get("experience", []))
-                    # Native HarvestAPI OTW flag
-                    c.is_open_to_work = data.get("openToWork", False) or "open to work" in (data.get("headline") or "").lower()
-                    
-                    if only_open_to_work and not c.is_open_to_work:
-                        continue # Skip if we only want OTW and this one isn't
-                        
-                results.append(c)
+        results = []
+        for c in candidates:
+            if c.profile_url in enriched_data:
+                data = enriched_data[c.profile_url]
+                c.headline = data.get("headline") or c.headline
+                c.experience_text = json.dumps(data.get("experience", []))
+                c.is_open_to_work = data.get("openToWork", False) or "open to work" in (data.get("headline") or "").lower()
                 
-            return results
-
-        except Exception as e:
-            print(f"❌ Apify Deep Scrape Error: {e}")
-            return candidates
+                if only_open_to_work and not c.is_open_to_work:
+                    continue
+                    
+            results.append(c)
+            
+        return results
 
     def send_outreach(self, profile_url: str, message_text: str) -> bool:
         """
@@ -174,7 +251,6 @@ class SourcingEngine:
 
         print(f"OUTREACH: Sending Apify Outreach to {profile_url}...")
         
-        # Addeus actor schema: profileUrl, messageText, liAtCookie, userAgent
         run_input = {
             "profileUrl": profile_url,
             "messageText": message_text,

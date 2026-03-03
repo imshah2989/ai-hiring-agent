@@ -100,8 +100,8 @@ async def startup_event():
             except Exception as e:
                 print(f"⚠️ Polling Error: {e}")
             
-            # Wait 10 minutes (600 seconds)
-            time.sleep(600)
+            # Wait 4 hours (14400 seconds) — was 10 min, changed to save Apify credits
+            time.sleep(14400)
 
     polling_thread = threading.Thread(target=poll_replies_worker, daemon=True)
     polling_thread.start()
