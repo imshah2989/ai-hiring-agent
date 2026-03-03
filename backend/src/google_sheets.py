@@ -181,10 +181,54 @@ class GoogleSheetsExporter:
             sheet_title = f"{role[:20]} - {datetime.now(UTC).strftime('%b %d %Y')}"
             ws = self._get_or_create_worksheet(sheet_title)
 
-            # Append all rows at once (efficient batch write)
-            ws.append_rows(rows, value_input_option="USER_ENTERED")
+            # DE-DUPLICATION & UPDATES: Fetch existing URLs and their row positions
+            # col_values() is 1-indexed. Column 5 is "LinkedIn URL"
+            all_urls = ws.col_values(5)
+            # Create a map of URL -> Row Number (1-indexed)
+            url_to_row = {url: i + 1 for i, url in enumerate(all_urls) if url}
+            
+            new_rows = []
+            updates = [] # List of tuples: (row_index, row_data)
+            
+            for row in rows:
+                url = row[4] # LinkedIn URL is at index 4
+                score = row[5] # Score is at index 5
+                
+                if url in url_to_row:
+                    # Candidate exists. Should we update or skip?
+                    if score:
+                        # We have AI data! Update the existing row
+                        row_idx = url_to_row[url]
+                        updates.append((row_idx, row))
+                        print(f"  📝 UPDATING EXISTING: {row[0]} at row {row_idx}")
+                    else:
+                        # No AI data (just another sourcing run), skip
+                        print(f"  ⏭️  SKIPPING DUPLICATE (No AI data): {row[0]} ({url})")
+                else:
+                    # New candidate, append
+                    new_rows.append(row)
+                    # Add to local map to prevent duplicates within the same new batch
+                    url_to_row[url] = len(all_urls) + len(new_rows) + 1
 
-            print(f"✅ Exported {len(rows)} candidates to Google Sheet: '{sheet_title}'")
+            # 1. Perform Updates (one by one for simplicity, or we could batch)
+            # For robustness, we'll use batch_update for all changed rows
+            if updates:
+                batch_data = []
+                for row_idx, row_data in updates:
+                    batch_data.append({
+                        'range': f'A{row_idx}:N{row_idx}', # Headers go up to N
+                        'values': [row_data]
+                    })
+                ws.batch_update(batch_data)
+                print(f"✅ Updated {len(updates)} existing candidates with AI analysis.")
+
+            # 2. Perform Appends
+            if new_rows:
+                ws.append_rows(new_rows, value_input_option="USER_ENTERED")
+                print(f"✅ Exported {len(new_rows)} brand new candidates.")
+            
+            if not updates and not new_rows:
+                 print(f"  ✅ No changes needed for '{sheet_title}'.")
             
         except Exception as e:
             print(f"❌ Google Sheets export error: {e}")

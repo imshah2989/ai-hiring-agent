@@ -1,6 +1,7 @@
 import os
 import json
 import re
+import time
 from typing import List, Dict
 from openai import OpenAI
 from .models import CandidateProfile, CandidateAssessment, RoleFitScore
@@ -137,25 +138,38 @@ class HiringAgent:
             IMPORTANT: All text fields like "evidence", "explanation", "reasoning_summary" MUST be plain strings, NOT objects.
             """
             
-        try:
-            resp = self.client.chat.completions.create(
-                model=self.model,
-                messages=[{"role": "user", "content": prompt}],
-                response_format={"type": "json_object"},
-                timeout=45.0
-            )
-            content = resp.choices[0].message.content
-            # Pre-clean the content just in case
-            content = self._clean_json(content)
-            data = json.loads(content)
-            data['model_used'] = self.model
-            # Ensure name is present even if AI missed it
-            if 'candidate_name' not in data:
-                data['candidate_name'] = candidate.name
-            return CandidateAssessment(**data)
-        except Exception as e:
-            print(f"   ❌ Assessment failed: {e}")
-            # Fallback to prevent pipeline crash
+        max_retries = 3
+        retry_delay = 2 # Seconds
+        
+        for attempt in range(max_retries):
+            try:
+                resp = self.client.chat.completions.create(
+                    model=self.model,
+                    messages=[{"role": "user", "content": prompt}],
+                    response_format={"type": "json_object"},
+                    timeout=45.0
+                )
+                content = resp.choices[0].message.content
+                # Pre-clean the content just in case
+                content = self._clean_json(content)
+                data = json.loads(content)
+                data['model_used'] = self.model
+                # Ensure name is present even if AI missed it
+                if 'candidate_name' not in data:
+                    data['candidate_name'] = candidate.name
+                return CandidateAssessment(**data)
+            except Exception as e:
+                # Check for 429 Too Many Requests
+                error_msg = str(e).lower()
+                if "429" in error_msg or "too many requests" in error_msg:
+                    if attempt < max_retries - 1:
+                        print(f"   ⚠️ AI Busy (429). Retrying in {retry_delay}s... (Attempt {attempt+1}/{max_retries})")
+                        time.sleep(retry_delay)
+                        retry_delay *= 2 # Exponential backoff
+                        continue
+                
+                print(f"   ❌ Assessment failed: {e}")
+                # Fallback to prevent pipeline crash
             return CandidateAssessment(
                 candidate_id=candidate.id,
                 candidate_name=candidate.name,
