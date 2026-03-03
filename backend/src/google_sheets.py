@@ -14,7 +14,7 @@ Setup:
 
 import os
 import json
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 from typing import List, Dict, Any, Optional
 
 import sys
@@ -124,7 +124,7 @@ class GoogleSheetsExporter:
             print("⚠️  Google Sheets export skipped (not configured).")
             return
 
-        search_date = datetime.now(UTC).strftime("%Y-%m-%d %H:%M UTC")
+        search_date = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
         # Build a lookup of analysis results by candidate_id
         analysis_lookup = {}
@@ -178,7 +178,7 @@ class GoogleSheetsExporter:
 
         try:
             # Use role + date as the worksheet title
-            sheet_title = f"{role[:20]} - {datetime.now(UTC).strftime('%b %d %Y')}"
+            sheet_title = f"{role[:20]} - {datetime.now(timezone.utc).strftime('%b %d %Y')}"
             ws = self._get_or_create_worksheet(sheet_title)
 
             # DE-DUPLICATION & UPDATES: Fetch existing URLs and their row positions

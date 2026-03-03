@@ -123,52 +123,86 @@ def write_status(stage: str, message: str):
     except Exception as e:
         print(f"⚠️ Warning: Could not write status: {e}")
 
+from src.main import stage_source, stage_analyze
+
 def _run_stage(stage: str, role: str, location: str = "United States", search_depth: int = 10, persona_text: str = None):
-    """Run a specific pipeline stage as a subprocess."""
+    """Run a specific pipeline stage in a background thread."""
     # Save persona if provided
     if persona_text:
         with open("persona.txt", "w", encoding="utf-8") as f:
             f.write(persona_text)
 
-    # IMMEDIATE STATUS RESET: Prevent frontend from seeing old results
+    # IMMEDIATE STATUS RESET & FILE CLEARING
     status_map = {
         "source": ("sourcing", f"Initializing search for '{role}'..."),
         "analyze": ("analyzing", "Initializing Analysis...")
     }
     s_stage, s_msg = status_map.get(stage, (stage, f"Starting {stage}..."))
-    write_status(s_stage, s_msg)
+    
+    # IMMEDIATE FILE CLEARING: Prevent frontend from seeing stale results
+    files_to_zero = ["results.json", "pipeline_status.json"]
+    if stage == "source":
+        files_to_zero.append("sourced_candidates.json")
+    
+    for f in files_to_zero:
+        try:
+            if os.path.exists(f):
+                with open(f, "w", encoding="utf-8") as f_out:
+                    if f == "pipeline_status.json":
+                        json.dump({"stage": s_stage, "message": s_msg}, f_out)
+                    else:
+                        json.dump([], f_out)
+        except: pass
 
-    # Resolve venv python path robustly
-    _backend_dir = Path(__file__).resolve().parent
-    # Check root venv first, then backend venv
-    _paths_to_check = [
-        _backend_dir.parent / ".venv" / "Scripts" / "python.exe",
-        _backend_dir / ".venv" / "Scripts" / "python.exe"
-    ]
-    _python = sys.executable
-    for p in _paths_to_check:
-        if p.exists():
-            _python = str(p)
-            break
+    # Mock Args object for main.py stage functions
+    class MockArgs:
+        def __init__(self, **kwargs):
+            for k, v in kwargs.items(): setattr(self, k, v)
 
-    cmd = [
-        _python, "-m", "src.main",
-        "--stage", stage,
-        "--role", role,
-        "--location", location,
-        "--search_depth", str(search_depth),
-    ]
-    if persona_text:
-        cmd += ["--persona", "persona.txt"]
+    def worker():
+        try:
+            import datetime
+            timestamp = datetime.datetime.now().strftime("%H:%M:%S")
+            log_msg = f"\n\n--- [{timestamp}] Threaded Stage: {stage} for {role} ---\n"
+            with open("analysis.log", "a", encoding="utf-8") as log_file:
+                log_file.write(log_msg)
+            
+            # Simple wrapper to capture print statements to analysis.log
+            import sys
+            class LoggerWrapper:
+                def __init__(self, original_stdout, log_file_path):
+                    self.original_stdout = original_stdout
+                    self.log_file_path = log_file_path
+                def write(self, message):
+                    self.original_stdout.write(message)
+                    with open(self.log_file_path, "a", encoding="utf-8") as f:
+                        f.write(message)
+                def flush(self):
+                    self.original_stdout.flush()
 
-    env = os.environ.copy()
-    env["PYTHONIOENCODING"] = "utf-8"
+            sys.stdout = LoggerWrapper(sys.stdout, "analysis.log")
+            
+            args = MockArgs(
+                stage=stage, 
+                role=role, 
+                location=location, 
+                search_depth=search_depth, 
+                persona="persona.txt" if persona_text else None
+            )
+            
+            if stage == "source":
+                stage_source(args)
+            elif stage == "analyze":
+                stage_analyze(args)
+            
+            # Restore stdout
+            sys.stdout = sys.stdout.original_stdout
+        except Exception as e:
+            with open("analysis.log", "a", encoding="utf-8") as f:
+                f.write(f"CRITICAL THREAD ERROR: {e}\n")
+            write_status("error", f"Backend Error: {e}")
 
-    with open("analysis.log", "a", encoding="utf-8") as log_file:
-        log_file.write(f"\n\n--- Stage: {stage} for {role} ---\n")
-        log_file.write(f"DEBUG: Running Command: {' '.join(cmd)}\n")
-        log_file.write(f"DEBUG: Using Python: {sys.executable}\n")
-        subprocess.Popen(cmd, stdout=log_file, stderr=log_file, env=env)
+    threading.Thread(target=worker, daemon=True).start()
 
 
 # ─── STAGE 1: SOURCE ────────────────────────────────────────────────
@@ -215,6 +249,18 @@ def get_status(response: Response):
         return {"stage": "idle", "message": "No analysis running."}
     with open("pipeline_status.json", "r", encoding="utf-8") as f:
         return json.load(f)
+
+@app.get("/logs")
+def get_logs():
+    """Returns the last 100 lines of analysis.log for debugging."""
+    if not os.path.exists("analysis.log"):
+        return {"logs": "No logs found."}
+    try:
+        with open("analysis.log", "r", encoding="utf-8") as f:
+            lines = f.readlines()
+            return {"logs": "".join(lines[-100:])}
+    except Exception as e:
+        return {"logs": f"Error reading logs: {e}"}
 
 @app.post("/send-outreach")
 def send_outreach(req: OutreachRequest):
