@@ -143,15 +143,22 @@ def _run_stage(stage: str, role: str, location: str = "United States", search_de
     files_to_zero = ["results.json", "pipeline_status.json"]
     if stage == "source":
         files_to_zero.append("sourced_candidates.json")
+        files_to_zero.append("analysis.log") # Clear logs for fresh start
+    
+    import datetime
+    from datetime import timezone
     
     for f in files_to_zero:
         try:
-            if os.path.exists(f):
-                with open(f, "w", encoding="utf-8") as f_out:
-                    if f == "pipeline_status.json":
-                        json.dump({"stage": s_stage, "message": s_msg}, f_out)
-                    else:
-                        json.dump([], f_out)
+            with open(f, "w", encoding="utf-8") as f_out:
+                if f == "pipeline_status.json":
+                    json.dump({
+                        "stage": s_stage, 
+                        "message": s_msg, 
+                        "timestamp": datetime.datetime.now(timezone.utc).isoformat()
+                    }, f_out)
+                else:
+                    json.dump([], f_out)
         except: pass
 
     # Mock Args object for main.py stage functions
