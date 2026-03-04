@@ -57,7 +57,22 @@ export default function App() {
 
   // Load data on mount
   useEffect(() => {
-    fetchData()
+    const init = async () => {
+      await fetchData()
+      // AUTO-CLEAR LOGIC: 
+      // If the dashboard is "done" or has an "error" on load, clear it for a fresh start.
+      // This satisfies the user request to "start fresh".
+      const statusRes = await fetch(`${API}/status?t=${Date.now()}`)
+      if (statusRes.ok) {
+        const d = await statusRes.json()
+        const stage = (d.stage || '').toLowerCase()
+        if (stage === 'done' || stage === 'error' || stage === 'sourcing_done' || stage === '') {
+          console.log("Auto-clearing stale dashboard...")
+          resetDashboard(true) // silent reset
+        }
+      }
+    }
+    init()
   }, [])
 
   // Poll when something is running
@@ -121,6 +136,27 @@ export default function App() {
     }
   }
 
+  const resetDashboard = async (silent = false) => {
+    if (!silent && !window.confirm("Are you sure? This will clear all current candidates and results.")) return
+
+    if (!silent) setStatusMsg('Resetting dashboard...')
+    try {
+      await fetch(`${API}/reset`, { method: 'POST' })
+      setSourced([])
+      setResults([])
+      setStage1Status('idle')
+      setStage2Status('idle')
+      if (!silent) setStatusMsg('Dashboard cleared.')
+      else setStatusMsg('')
+      setRole('')
+      setLocation('')
+      setPersona('')
+    } catch (err) {
+      console.error("Reset failed:", err)
+      if (!silent) setStatusMsg('❌ Reset failed.')
+    }
+  }
+
   // ─── Render ─────────────────────────────────────────────────────
   return (
     <div className="min-h-screen">
@@ -141,6 +177,12 @@ export default function App() {
               className="px-4 py-1.5 rounded-lg border border-slate-800 text-slate-400 text-[11px] font-bold hover:bg-slate-900 transition-all flex items-center gap-2"
             >
               <span>📩</span> Check Replies
+            </button>
+            <button
+              onClick={() => resetDashboard()}
+              className="px-4 py-1.5 rounded-lg border border-red-900/30 bg-red-950/20 text-red-400 text-[11px] font-bold hover:bg-red-900/20 transition-all flex items-center gap-2"
+            >
+              <span>🔄</span> Reset Dashboard
             </button>
             <span className="text-[10px] font-mono text-slate-600 bg-slate-900 px-2 py-1 rounded-lg border border-slate-800">
               v6.0 · 2-Stage Pipeline
