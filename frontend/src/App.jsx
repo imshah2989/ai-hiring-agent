@@ -97,7 +97,7 @@ export default function App() {
       const res = await fetch(`${API}/start-sourcing`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ role: role.trim(), location: location.trim() || 'Pakistan', search_depth: 50 }),
+        body: JSON.stringify({ role: role.trim(), location: location.trim() || 'Pakistan', search_depth: 200 }),
       })
       if (!res.ok) throw new Error((await res.json()).detail)
     } catch (err) {
